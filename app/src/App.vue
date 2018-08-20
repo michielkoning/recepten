@@ -27,7 +27,6 @@ export default {
 
 
 <style lang="scss">
-
 @font-face {
   font-family: "Avenir";
   src: url("./assets/fonts/LeagueMonoVariable.ttf") format("truetype");
