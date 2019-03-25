@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="recipe">
 
     <div class="link">
       <router-link :to="{ name: 'home' }">Terug</router-link>
@@ -7,12 +7,13 @@
     <h1
       v-html="
       recipe.title" />
-    <div>
+    <div v-if="ingredients">
       <ul>
         <button @click="addPerson">{{ counter }} personen</button>
         <li
-          v-for="(ingredient, index) in recipe.ingredients"
+          v-for="(ingredient, index) in ingredients"
           :key="index">
+          {{ ingredient.amount }}
           {{ ingredient.title }}
         </li>
       </ul>
@@ -55,40 +56,56 @@ export default {
       recipe: () => {},
     };
   },
-  watch: {
-    recipe() {},
-  },
+
   mounted() {
-    axios
-      .get('/recipes/v1/recipe', {
-        params: {
-          slug: this.$route.params.slug,
-        },
-      })
-      .then((response) => {
+    this.getRecipe();
+  },
+  computed: {
+    ingredients() {
+      if (!this.recipe.ingredients) return;
+      return this.recipe.ingredients.map((ingredient) => {
+        const amount = this.getAmountofIngredient(ingredient);
+        return {
+          title: ingredient.replace(amount, ''),
+          amount,
+          singleAmount: amount / 2,
+        };
+      });
+    },
+  },
+  methods: {
+    async getRecipe() {
+      try {
+        const response = await axios.get('/recipes/v1/recipe', {
+          params: {
+            slug: this.$route.params.slug,
+          },
+        });
         if (response.data) {
           this.recipe = response.data;
           document.title = this.recipe.title;
         } else {
           this.$router.push({ name: 'home' });
         }
-      });
-  },
-  methods: {
+      } catch (error) {
+        window.console.error(error);
+      }
+    },
+    getAmountofIngredient(string) {
+      const regex = /[+-]?\d+(\.\d+)?/g;
+      const amount = string.match(regex);
+      if (amount) {
+        return parseFloat(amount[0]);
+      }
+      return '';
+    },
     addPerson() {
       this.counter += 1;
-      this.recipe.ingredients = this.recipe.ingredients.map((ingredient) => {
+      this.ingredients.forEach((ingredient) => {
         const newIngredient = ingredient;
-        if (ingredient.amount) {
-          const regex = /[+-]?\d+(\.\d+)?/g;
-          const currentAmount = ingredient.title
-            .match(regex)
-            .map(value => parseFloat(value));
-          newIngredient.title = ingredient.title.replace(currentAmount, '%%%');
-          const newAmount = this.counter * (ingredient.amount / 2);
-          newIngredient.title = newIngredient.title.replace('%%%', newAmount);
+        if (newIngredient.amount) {
+          newIngredient.amount += newIngredient.singleAmount;
         }
-        return newIngredient;
       });
     },
   },
@@ -96,7 +113,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about {
+.recipe {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: 1fr 3fr;
@@ -108,7 +125,7 @@ export default {
 }
 
 a {
-  padding: 0.25em 0.5em;
+  padding: 0.25em 0;
   background: #fff;
   border-bottom-width: 0;
 }

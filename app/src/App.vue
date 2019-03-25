@@ -28,8 +28,14 @@ export default {
 
 <style lang="scss">
 @font-face {
-  font-family: "Avenir";
-  src: url("./assets/fonts/LeagueMonoVariable.ttf") format("truetype");
+  font-family: "body";
+  src: url("./assets/fonts/CrimsonPro-Roman-VF.ttf") format("truetype");
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: "header";
+  src: url("./assets/fonts/MovementV.ttf") format("truetype");
   font-weight: 1 999;
 }
 
@@ -49,7 +55,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  font-family: Avenir, sans-serif;
+  font-family: body, sans-serif;
   font-variation-settings: "wght" 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -58,6 +64,7 @@ body {
 
 h1,
 h2 {
+  font-family: header, sans-serif;
   line-height: 1.2;
 }
 
