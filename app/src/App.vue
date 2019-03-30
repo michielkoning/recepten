@@ -3,16 +3,21 @@
     <transition :name="transitionName">
       <router-view/>
     </transition>
+
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {
       transitionName: '',
     };
   },
+
   watch: {
     $route(to, from) {
       if (to.name === 'home' && from.name === 'recipe') {
@@ -21,6 +26,18 @@ export default {
         this.transitionName = 'slide-right';
       }
     },
+  },
+  methods: {
+    ...mapActions({
+      setAll: 'recipes/setAll',
+    }),
+    getRecipes() {
+      this.setAll();
+    },
+  },
+  mounted() {
+    document.title = 'Recepten van Maaike & Michiel';
+    this.getRecipes();
   },
 };
 </script>

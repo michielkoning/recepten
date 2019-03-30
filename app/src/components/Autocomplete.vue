@@ -1,7 +1,7 @@
 <template>
   <div class="autocomplete">
-    <input
-      v-model="search"
+     <input
+      v-model="searchTerm"
       type="search"
       @input="onChange"
       @keydown.down="onArrowDown"
@@ -10,7 +10,6 @@
       @keydown.esc="reset"
     >
     <icon-base icon-name="calendar"><icon-calendar /></icon-base>
-    <transition name="open">
       <ul
         v-show="isOpen"
         id="autocomplete-results"
@@ -18,19 +17,17 @@
       >
         <li
           v-for="(result, index) in results"
-          :key="result.id"
+          :key="result.slug"
           :class="{ 'is-active':index === arrowCounter }"
           class="autocomplete-result"
           @click="goToResultPage(result)"
-          v-html="result.title.rendered"
-        />
+
+        > {{result.title}}</li>
       </ul>
-    </transition>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import IconBase from './IconBase.vue';
 import IconCalendar from './icons/IconCalendar.vue';
 
@@ -40,29 +37,17 @@ export default {
     IconBase,
     IconCalendar,
   },
-  props: {
-    items: {
-      type: Array,
-      required: false,
-      default: () => [],
+  computed: {
+    isOpen() {
+      return this.results.length > 0 && this.searchTerm.length;
     },
   },
-
   data() {
     return {
-      isOpen: false,
       results: [],
-      search: '',
+      searchTerm: '',
       arrowCounter: 0,
     };
-  },
-  watch: {
-    items(val, oldValue) {
-      // actually compare them
-      if (val.length !== oldValue.length) {
-        this.results = val;
-      }
-    },
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside);
@@ -72,20 +57,12 @@ export default {
   },
   methods: {
     onChange() {
-      if (this.search.length > 0) {
-        axios.get('/wp/v2/recipes', {
-          params: {
-            search: this.search,
-          },
-        }).then((response) => {
-          this.results = response.data;
-          this.isOpen = true;
-        });
+      if (this.searchTerm.length > 0) {
+        this.results = this.$store.getters['recipes/search'](this.searchTerm);
       } else {
         this.reset();
       }
     },
-
     onArrowDown() {
       if (this.arrowCounter < this.results.length - 1) {
         this.arrowCounter += 1;
@@ -111,14 +88,12 @@ export default {
       this.$router.push({ name: 'recipe', params: { slug: result.slug } });
     },
     reset() {
-      this.search = '';
-      this.isOpen = false;
+      this.searchTerm = '';
       this.arrowCounter = -1;
     },
     handleClickOutside(evt) {
       if (!this.$el.contains(evt.target)) {
-        this.isOpen = false;
-        this.arrowCounter = -1;
+        this.reset();
       }
     },
   },
@@ -187,5 +162,4 @@ input {
   background-color: var(--primary-color);
   color: white;
 }
-
 </style>

@@ -4,19 +4,33 @@
     <div class="link">
       <router-link :to="{ name: 'home' }">Terug</router-link>
     </div>
-    <h1
-      v-html="
-      recipe.title" />
-    <div v-if="ingredients">
-      <ul>
-        <button @click="addPerson">{{ counter }} personen</button>
-        <li
-          v-for="(ingredient, index) in ingredients"
-          :key="index">
-          {{ ingredient.amount }}
-          {{ ingredient.title }}
-        </li>
-      </ul>
+
+    <h1>{{ recipe.title }}</h1>
+    <aside>
+      <div class="ingredients">
+        <button
+          @click="changeAmountofEaters(counter - 1)"
+          :disabled="(counter <= 1)">-</button>
+          {{ counter }}
+        <button @click="changeAmountofEaters(counter + 1)">+</button>
+        <template v-if="counter === 1">
+          persoon
+        </template>
+        <template v-else>
+          personen
+        </template>
+
+        <ul>
+          <li
+            v-for="(ingredient, index) in recipe.ingredients"
+            :key="index">
+            <template v-if="ingredient.amount">
+              {{ ingredient.amount | formatAmount }}
+            </template>
+            {{ ingredient.title }}
+          </li>
+        </ul>
+      </div>
       <div>
         <a
           v-if="recipe.preparation_time"
@@ -35,7 +49,8 @@
           {{ type }}
         </span>
       </div>
-    </div>
+    </aside>
+
     <div>
       <div
         v-if="recipe.preparation"
@@ -46,10 +61,14 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { mapState } from 'vuex';
+
+const formatter = new Intl.NumberFormat('nl-NL', {
+  style: 'decimal',
+  maximumFractionDigits: 2,
+});
 
 export default {
-  name: 'Home',
   data() {
     return {
       counter: 2,
@@ -60,51 +79,40 @@ export default {
   mounted() {
     this.getRecipe();
   },
+
+  filters: {
+    formatAmount(value) {
+      return formatter.format(value);
+    },
+  },
+
   computed: {
+    ...mapState('recipes', ['recipes', 'isLoading']),
     ingredients() {
-      if (!this.recipe.ingredients) return;
-      return this.recipe.ingredients.map((ingredient) => {
-        const amount = this.getAmountofIngredient(ingredient);
-        return {
-          title: ingredient.replace(amount, ''),
-          amount,
-          singleAmount: amount / 2,
-        };
-      });
+      return this.recipe.ingredients;
+    },
+  },
+  watch: {
+    isLoading() {
+      this.getRecipe();
     },
   },
   methods: {
-    async getRecipe() {
-      try {
-        const response = await axios.get('/recipes/v1/recipe', {
-          params: {
-            slug: this.$route.params.slug,
-          },
-        });
-        if (response.data) {
-          this.recipe = response.data;
-          document.title = this.recipe.title;
-        } else {
-          this.$router.push({ name: 'home' });
-        }
-      } catch (error) {
-        window.console.error(error);
+    getRecipe() {
+      if (!this.isLoading) {
+        const { slug } = this.$route.params;
+        this.recipe = this.$store.getters['recipes/getBySlug'](slug);
       }
     },
-    getAmountofIngredient(string) {
-      const regex = /[+-]?\d+(\.\d+)?/g;
-      const amount = string.match(regex);
-      if (amount) {
-        return parseFloat(amount[0]);
-      }
-      return '';
+    changeAmountofEaters(counter) {
+      this.counter = counter;
+      this.updateIngredients();
     },
-    addPerson() {
-      this.counter += 1;
-      this.ingredients.forEach((ingredient) => {
-        const newIngredient = ingredient;
-        if (newIngredient.amount) {
-          newIngredient.amount += newIngredient.singleAmount;
+    updateIngredients() {
+      this.recipe.ingredients.forEach((ingredient) => {
+        if (ingredient.amount) {
+          const newIngredient = ingredient;
+          newIngredient.amount = this.counter * newIngredient.singleAmount;
         }
       });
     },
