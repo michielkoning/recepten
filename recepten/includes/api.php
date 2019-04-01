@@ -19,8 +19,7 @@ function get_recipes( ) {
       $recipe->ingredients = array();
       $recipe->image = get_the_post_thumbnail($post->ID);
       $recipe->source = get_field('source', $post->ID);
-      $recipe->types = get_field('type', $post->ID);
-      $recipe->preperation = get_field('preperation', $post->ID);
+      $recipe->type = get_field('type', $post->ID);
       $recipe->preparation_time = get_field('preparation_time', $post->ID);
       $recipe->content = apply_filters('the_content', $post->post_content);
       $recipe->title = $post->post_title;

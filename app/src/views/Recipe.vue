@@ -1,141 +1,130 @@
 <template>
   <div class="recipe">
 
-    <div class="link">
-      <router-link :to="{ name: 'home' }">Terug</router-link>
-    </div>
+      <router-link class="back" :to="{ name: 'list' }">
+        <icon
+          :width="16"
+          :height="16"
+          icon="chevron-left"
+         />
+
+        Terug</router-link>
 
     <h1>{{ recipe.title }}</h1>
     <aside>
-      <div class="ingredients">
-        <button
-          @click="changeAmountofEaters(counter - 1)"
-          :disabled="(counter <= 1)">-</button>
-          {{ counter }}
-        <button @click="changeAmountofEaters(counter + 1)">+</button>
-        <template v-if="counter === 1">
-          persoon
-        </template>
-        <template v-else>
-          personen
-        </template>
+      <eaters />
+      <ingredients v-if="recipe.ingredients" :ingredients="recipe.ingredients" />
 
-        <ul>
-          <li
-            v-for="(ingredient, index) in recipe.ingredients"
-            :key="index">
-            <template v-if="ingredient.amount">
-              {{ ingredient.amount | formatAmount }}
-            </template>
-            {{ ingredient.title }}
-          </li>
-        </ul>
-      </div>
-      <div>
+      <dl>
+      <template v-if="recipe.source">
+        <dt>
+          <icon
+            :width="24"
+            :height="24"
+            icon="source"
+            title="Bron" />
+        </dt>
+        <dd>
         <a
-          v-if="recipe.preparation_time"
           :href="recipe.source"
           target="_blank"
+          class="source"
           rel="noopener">
-          Bron</a>
-      </div>
-      <div v-if="recipe.preparation_time">
-        {{ recipe.preparation_time }} minuten
-      </div>
-      <div>
-        <span
-          v-for="(type, index) in recipe.types"
-          :key="index">
-          {{ type }}
-        </span>
-      </div>
+            Bron </a>
+        </dd>
+      </template>
+      <template v-if="recipe.preparation_time">
+        <dt>
+        <icon
+          :width="24"
+          :height="24"
+          icon="clock"
+          title="Bron" />
+        </dt>
+        <dd>
+          {{ recipe.preparation_time }}
+          minuten
+        </dd>
+      </template>
+        <dt>
+          <icon
+            :width="24"
+            :height="24"
+            icon="category"
+            title="Type" />
+        </dt>
+        <dd>
+          {{ recipe.type }}
+        </dd>
+      </dl>
     </aside>
-
     <div>
-      <div
-        v-if="recipe.preparation"
-        v-html="recipe.preparation" />
-      <div v-html="recipe.content" />
+      <h2>Bereiding</h2>
+      <div class="preperation" v-html="recipe.content" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
-const formatter = new Intl.NumberFormat('nl-NL', {
-  style: 'decimal',
-  maximumFractionDigits: 2,
-});
+import { mapState, mapActions } from 'vuex';
+import Icon from '@/components/Icon.vue';
+import Ingredients from '@/components/Ingredients.vue';
+import Eaters from '@/components/Eaters.vue';
 
 export default {
+  components: {
+    Icon,
+    Ingredients,
+    Eaters,
+  },
   data() {
     return {
-      counter: 2,
-      recipe: () => {},
+      recipe: {},
     };
   },
 
   mounted() {
     this.getRecipe();
-  },
-
-  filters: {
-    formatAmount(value) {
-      return formatter.format(value);
-    },
+    document.title = `${this.recipe.title} | Recepten van Maaike & Michiel`;
   },
 
   computed: {
-    ...mapState('recipes', ['recipes', 'isLoading']),
-    ingredients() {
-      return this.recipe.ingredients;
-    },
+    ...mapState('recipes', ['recipes']),
   },
-  watch: {
-    isLoading() {
-      this.getRecipe();
-    },
-  },
+
   methods: {
     getRecipe() {
-      if (!this.isLoading) {
-        const { slug } = this.$route.params;
-        this.recipe = this.$store.getters['recipes/getBySlug'](slug);
-      }
-    },
-    changeAmountofEaters(counter) {
-      this.counter = counter;
-      this.updateIngredients();
-    },
-    updateIngredients() {
-      this.recipe.ingredients.forEach((ingredient) => {
-        if (ingredient.amount) {
-          const newIngredient = ingredient;
-          newIngredient.amount = this.counter * newIngredient.singleAmount;
-        }
-      });
+      const { slug } = this.$route.params;
+      this.recipe = this.$store.getters['recipes/getBySlug'](slug);
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .recipe {
   display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 1fr 3fr;
+  grid-gap: var(--gutter);
+  @media (--viewport-md) {
+    grid-template-columns: 1fr 3fr;
+  }
 }
 
-.link {
+.back {
+  position: relative;
   align-self: self-end;
-  padding: 0;
-}
+  padding: 0 0 0 1em;
 
-a {
-  padding: 0.25em 0;
-  background: #fff;
-  border-bottom-width: 0;
+  & svg {
+    transition: transform 0.1s ease-out;
+    top: 0.45em;
+    left: 0;
+    position: absolute;
+  }
+
+  &:hover svg {
+    transform: translateX(-0.25em);
+  }
 }
 
 h1 {
@@ -143,27 +132,33 @@ h1 {
   padding: 0;
 }
 
-p {
-  margin: 0 0 1em;
+dl {
+  display: grid;
+  grid-gap: 0.25em;
+  grid-template-columns: 1.25em auto;
 }
 
-ul {
-  font-size: 1em;
-  margin: 0 0 1em;
+dt {
+  padding-top: 0.25em;
 }
 
-li {
-  margin-bottom: 0.5em;
-}
+.preperation {
+  counter-reset: preperation;
 
-img {
-  object-fit: cover;
-  display: block;
-  margin-bottom: 1em;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
+  & >>> p {
+    position: relative;
+    padding-left: 1em;
+
+    &::before {
+      font-family: 'header';
+      font-size: 1.2em;
+      line-height: 1;
+      position: absolute;
+      top: 0.1em;
+      left: 0;
+      counter-increment: preperation;
+      content: counter(preperation);
+    }
+  }
 }
 </style>

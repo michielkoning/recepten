@@ -9,7 +9,7 @@
       @keydown.enter="onEnter"
       @keydown.esc="reset"
     >
-    <icon-base icon-name="calendar"><icon-calendar /></icon-base>
+      <icon icon="search" title="Zoeken" />
       <ul
         v-show="isOpen"
         id="autocomplete-results"
@@ -28,14 +28,11 @@
 </template>
 
 <script>
-import IconBase from './IconBase.vue';
-import IconCalendar from './icons/IconCalendar.vue';
+import Icon from '@/components/Icon.vue';
 
 export default {
-  name: 'Autocomplete',
   components: {
-    IconBase,
-    IconCalendar,
+    Icon,
   },
   computed: {
     isOpen() {
@@ -100,7 +97,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .open-enter-active,
 .open-leave-active {
   transition: all 0.2s;
@@ -121,33 +118,24 @@ export default {
   margin-bottom: 1em;
   align-items: center;
   position: relative;
-  border: 2px solid var(--grey);
+  border: 2px solid var(--gray);
+  background: var(--white);
 
   &:focus-within {
-    border-color: #000;
-  }
-}
-
-input {
-  border: 0;
-  appearance: none;
-  width: 100%;
-  font-family: inherit;
-  font-size: 1.25em;
-
-  &:focus {
-    outline: none;
+    border-color: var(--text-color);
   }
 }
 
 .autocomplete-results {
   margin: 0;
-  border: 1px solid #000;
+  border: 1px solid var(--text-color);
   position: absolute;
   background: white;
   top: 100%;
   left: -1px;
   right: -1px;
+  list-style: none outside;
+  padding-left: 0;
 }
 
 .autocomplete-result {

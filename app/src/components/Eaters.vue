@@ -1,0 +1,72 @@
+<template>
+  <div class="eaters">
+    <button
+    class="add"
+      @click="changeAmountofEaters(totalEaters - 1)"
+      :disabled="(totalEaters <= 1)">-</button>
+      <div  class="amount">
+      {{ totalEaters }}
+    <template v-if="totalEaters === 1">
+      persoon
+    </template>
+    <template v-else>
+      personen
+    </template>
+    </div>
+    <button
+    class="substract"
+      @click="changeAmountofEaters(totalEaters + 1)">+</button>
+  </div>
+  </div>
+</template>
+
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+  computed: {
+    totalEaters: {
+      get() {
+        return this.$store.state.settings.totalEaters;
+      },
+      set(value) {
+        this.setTotalEaters(value);
+      },
+    },
+  },
+  methods: {
+    ...mapActions({
+      setTotalEaters: 'settings/setTotalEaters',
+    }),
+    changeAmountofEaters(counter) {
+      this.totalEaters = counter;
+    },
+  },
+};
+</script>
+
+<style scoped>
+.eaters {
+  margin-bottom: 1em;
+  display: flex;
+}
+
+button {
+  border: 2px solid var(--black);
+  flex: 0 0 1.5em;
+}
+
+.amount {
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  padding: 0 0.5em;
+}
+
+.add {
+  border-radius: 1em 0 0 1em;
+}
+
+.substract {
+  border-radius: 0 1em 1em 0;
+}
+</style>

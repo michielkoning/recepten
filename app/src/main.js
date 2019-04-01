@@ -4,10 +4,10 @@ import App from './App.vue';
 import router from './router';
 import './registerServiceWorker';
 import store from './store/store';
+import './icons';
 
 Vue.config.productionTip = false;
-
-axios.defaults.baseURL = 'http://localhost:8002/wp-json';
+axios.defaults.baseURL = process.env.VUE_APP_API_URL;
 
 new Vue({
   router,

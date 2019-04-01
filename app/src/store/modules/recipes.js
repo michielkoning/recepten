@@ -1,12 +1,26 @@
-import axios from 'axios';
-
 const moduleState = {
   recipes: [],
-  isLoading: true,
 };
 
 const getters = {
-  search: state => term => state.recipes.filter(recipe => recipe.title.toLowerCase().includes(term.toLowerCase()),),
+  categories: state => [...new Set(state.recipes.map(item => item.type))],
+  filterByCategories: state => (categories) => {
+    if (categories.length > 0) {
+      let recipes = [];
+      categories.forEach((category) => {
+        const recipesFromCategory = state.recipes.filter(
+          recipe => recipe.type === category,
+        );
+        recipes = [...recipes, ...recipesFromCategory];
+      });
+      return recipes;
+    }
+    return state.recipes;
+  },
+  search: state => term => state.recipes.filter((recipe) => {
+      const searchTerm = term.toLowerCase();
+      return recipe.title.toLowerCase().includes(searchTerm);
+    }),
   getBySlug: state => slug => state.recipes.find(recipe => recipe.slug === slug),
 };
 
@@ -14,25 +28,12 @@ const mutations = {
   setAll: (state, payload) => {
     const newState = state;
     newState.recipes = payload;
-    newState.isLoading = false;
-  },
-  search: (state, payload) => {
-    const newState = state;
-    newState.recipes = newState.recipes.filter(recipe => recipe.title.includes(payload),);
   },
 };
 
 const actions = {
-  setAll: async ({ commit }) => {
-    try {
-      const response = await axios.get('/recipes/v1/all');
-      commit('setAll', response.data);
-    } catch (error) {
-      window.console.error(error);
-    }
-  },
-  search: ({ commit }, payload) => {
-    commit('search', payload);
+  setAll: ({ commit }, payload) => {
+    commit('setAll', payload);
   },
 };
 
