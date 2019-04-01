@@ -3,18 +3,19 @@
     <autocomplete />
     <categories />
     <h1>Recepten</h1>
-    <ul>
-      <li
-        v-for="recipe in recipes"
-        :key="recipe.slug">
-        <div class="image-wrapper" v-html="recipe.image" />
-        <router-link
-          :to="{ name: 'recipe', params: { slug: recipe.slug } }"
-          >
-          {{ recipe.title}}
-        </router-link>
-      </li>
-    </ul>
+       <transition-group name="list" tag="ul">
+        <li
+          v-for="recipe in recipes"
+          :key="recipe.slug">
+          <router-link
+            :to="{ name: 'recipe', params: { slug: recipe.slug } }"
+            >
+            <div class="image-wrapper" v-html="recipe.image" />
+            {{ recipe.title}}
+          </router-link>
+        </li>
+      </transition-group>
+
   </div>
 </template>
 
@@ -64,23 +65,23 @@ ul {
   list-style: none outside;
   padding-left: 0;
 
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em; */
-}
-
-li {
-  /* border: 1px solid black; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  grid-gap: 1em;
 }
 
 a {
-  /* display: block;
-  padding: 0.5em; */
+  display: block;
+  &:hover >>> img {
+    transform: scale(1.1);
+  }
 }
+
 .image-wrapper {
-  display: none;
   height: 8em;
+  overflow: hidden;
   & >>> img {
+    transition: 0.2s transform ease-out;
     display: block;
     height: 100%;
     width: 100%;

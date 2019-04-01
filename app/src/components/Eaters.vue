@@ -17,7 +17,6 @@
     class="substract"
       @click="changeAmountofEaters(totalEaters + 1)">+</button>
   </div>
-  </div>
 </template>
 
 <script>
@@ -54,6 +53,9 @@ export default {
 button {
   border: 2px solid var(--black);
   flex: 0 0 1.5em;
+  &:disabled {
+    color: var(--gray);
+  }
 }
 
 .amount {
