@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 ul {
   margin: 0 -0.25rem 1em;
   display: flex;

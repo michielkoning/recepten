@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 import Icon from '@/components/Icon.vue';
 import Ingredients from '@/components/Ingredients.vue';
 import Eaters from '@/components/Eaters.vue';
@@ -101,7 +101,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .recipe {
   display: grid;
   grid-gap: var(--gutter);

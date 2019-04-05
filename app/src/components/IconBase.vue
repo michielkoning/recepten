@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 svg {
   display: inline-block;
   vertical-align: baseline;

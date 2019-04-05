@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 h2 {
   padding-bottom: 0.5em;
 }

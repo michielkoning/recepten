@@ -49,7 +49,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="postcss">
 @import './styles/app.css';
 
 @font-face {

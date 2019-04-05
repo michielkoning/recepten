@@ -60,7 +60,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 ul {
   list-style: none outside;
   padding-left: 0;

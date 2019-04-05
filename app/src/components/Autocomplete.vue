@@ -97,7 +97,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .open-enter-active,
 .open-leave-active {
   transition: all 0.2s;

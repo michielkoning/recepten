@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .eaters {
   margin-bottom: 1em;
   display: flex;
