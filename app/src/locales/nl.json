@@ -1,5 +1,9 @@
 {
+  "meta": {
+    "pageTitle": " | Recepten van Maaike & Michiel"
+  },
   "list": {
+    "pageTitle": "Overzicht",
     "title": "Recepten",
     "no-results": "Er zijn geen recepten gevonden.",
     "categories": "Categoriën",
@@ -12,6 +16,7 @@
     "source": "Bron",
     "minutes": "minuten",
     "preparation": "Bereiding",
-    "ingredients": "Ingredienten"
+    "ingredients": "Ingredienten",
+    "persons": "persoon | personen"
   }
 }

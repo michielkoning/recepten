@@ -53,7 +53,7 @@ export default {
   },
 
   mounted() {
-    document.title = 'Overzicht | Recepten van Maaike & Michiel';
+    document.title = `${this.$t('list.pageTitle')}${this.$t('meta.pageTitle')}`;
   },
 
   methods: {

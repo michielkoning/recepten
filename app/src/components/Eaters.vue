@@ -5,13 +5,7 @@
       class="add"
       @click="changeAmountofEaters(totalEaters - 1)">-</button>
     <div class="amount">
-      {{ totalEaters }}
-      <template v-if="totalEaters === 1">
-        persoon
-      </template>
-      <template v-else>
-        personen
-      </template>
+      {{ totalEaters }} {{ $tc('details.persons', totalEaters) }}
     </div>
     <button
       class="substract"

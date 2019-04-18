@@ -95,7 +95,7 @@ export default {
 
   mounted() {
     this.getRecipe();
-    document.title = `${this.recipe.title} | Recepten van Maaike & Michiel`;
+    document.title = `${this.recipe.title}${this.$t('meta.pageTitle')}`;
   },
 
   methods: {
