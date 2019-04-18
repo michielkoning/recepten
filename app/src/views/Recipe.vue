@@ -10,7 +10,7 @@
         icon="chevron-left"
       />
 
-      Terug</router-link>
+      Terug naar alle recepten</router-link>
 
     <h1>{{ recipe.title }}</h1>
     <aside>
