@@ -15,7 +15,7 @@ module.exports = {
       locale: 'nl',
       fallbackLocale: 'nl',
       localeDir: 'locales',
-      enableInSFC: false
-    }
-  }
+      enableInSFC: false,
+    },
+  },
 };

@@ -9,6 +9,7 @@
       v-if="title"
       lang="nl"
     >{{ title }}</title>
+
     <g :fill="color">
       <use
         v-bind="{ 'xlink:href': '#' + icon }"

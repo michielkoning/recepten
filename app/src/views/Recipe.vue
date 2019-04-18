@@ -10,7 +10,7 @@
         icon="chevron-left"
       />
 
-      Terug naar alle recepten</router-link>
+      {{ $t('details.back-to-list') }}</router-link>
 
     <h1>{{ recipe.title }}</h1>
     <aside>
@@ -47,7 +47,7 @@
           </dt>
           <dd>
             {{ recipe.preparation_time }}
-            minuten
+            {{ $t('details.minutes') }}
           </dd>
         </template>
         <dt>
@@ -63,7 +63,7 @@
       </dl>
     </aside>
     <div>
-      <h2>Bereiding</h2>
+      <h2>{{ $t('details.preparation') }}</h2>
       <div
         class="preperation"
         v-html="recipe.content" />

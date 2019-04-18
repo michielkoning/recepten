@@ -1,6 +1,6 @@
 <template>
   <fieldset>
-    <legend class="sr-only">Categoriën</legend>
+    <legend class="sr-only">{{ $t('list.categories') }}</legend>
     <ul>
       <li
         v-for="category in categories"

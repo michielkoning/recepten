@@ -1,3 +1,17 @@
 {
-  "message": "hello i18n !!"
+  "list": {
+    "title": "Recepten",
+    "no-results": "Er zijn geen recepten gevonden.",
+    "categories": "Categoriën",
+    "search": "Zoeken",
+    "search-for-recipes": "Zoek naar recepten",
+    "reset-search": "Opnieuw zoeken"
+  },
+  "details": {
+    "back-to-list": "Terug naar alle recepten",
+    "source": "Bron",
+    "minutes": "minuten",
+    "preparation": "Bereiding",
+    "ingredients": "Ingredienten"
+  }
 }

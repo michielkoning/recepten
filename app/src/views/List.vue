@@ -4,7 +4,7 @@
       :list="searchList"
       @search="search" />
     <categories />
-    <h1>Recepten</h1>
+    <h1>{{ $t('list.title') }}</h1>
     <ul v-if="recipes.length">
       <li
         v-for="recipe in recipes"
@@ -17,7 +17,7 @@
       </li>
     </ul>
     <p v-else>
-      Er zijn geen recepten gevonden.
+      {{ $t('list.no-results') }}
     </p>
   </div>
 </template>

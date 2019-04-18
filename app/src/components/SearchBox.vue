@@ -1,14 +1,12 @@
 <template>
   <fieldset>
-    <legend class="sr-only">Zoeken</legend>
+    <legend class="sr-only">{{ $t('list.search') }}</legend>
 
     <div class="search-box" >
       <label
         class="sr-only"
-        for="search">Zoek naar recepten:</label>
-      <icon
-        icon="search"
-        title="Zoeken" />
+        for="search">{{ $t('list.search-for-recipes') }}</label>
+      <icon icon="search" />
       <input
         id="search"
         v-model="searchTerm"
@@ -21,8 +19,8 @@
         <icon
           :width="18"
           :height="18"
+          :title="$t('list.reset-search')"
           icon="close"
-          title="Zoeken"
         />
       </button>
     </div>

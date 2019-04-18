@@ -1,6 +1,6 @@
 <template>
   <div class="ingredients">
-    <h2>Ingredienten</h2>
+    <h2>{{ $t('details.ingredients') }}</h2>
     <ul>
       <li
         v-for="(ingredient, index) in ingredients"
@@ -50,6 +50,9 @@ export default {
       this.updateIngredients();
     },
   },
+  mounted() {
+    this.updateIngredients();
+  },
   methods: {
     updateIngredients() {
       this.ingredients.forEach((ingredient) => {
@@ -59,9 +62,6 @@ export default {
         }
       });
     },
-  },
-  mounted() {
-    this.updateIngredients();
   },
 };
 </script>

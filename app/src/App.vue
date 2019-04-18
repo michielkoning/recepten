@@ -1,5 +1,8 @@
 <template>
-  <div id="app" v-if="!isLoading" class="center">
+  <div
+    v-if="!isLoading"
+    id="app"
+    class="center">
     <transition :name="transitionName">
       <router-view/>
     </transition>
