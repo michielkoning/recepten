@@ -7,7 +7,7 @@
         :key="index">
         <template v-if="ingredient.title">
           <span v-if="ingredient.amount">
-            {{ ingredient.amount | formatAmount }}
+            {{ $n(ingredient.amount, 'decimal') }}
           </span>
           {{ ingredient.title }}
         </template>
@@ -20,19 +20,9 @@
 import Icon from '@/components/Icon.vue';
 import { mapState } from 'vuex';
 
-const formatter = new Intl.NumberFormat('nl-NL', {
-  style: 'decimal',
-  maximumFractionDigits: 2,
-});
-
 export default {
   components: {
     Icon,
-  },
-  filters: {
-    formatAmount(value) {
-      return formatter.format(value);
-    },
   },
 
   props: {
