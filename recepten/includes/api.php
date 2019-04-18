@@ -4,8 +4,10 @@ function get_recipes( ) {
 
   $posts = get_posts(array(
     'post_type'   => 'recipe',
-    'numberposts' => -1
-  ));
+    'numberposts' => -1,
+    'orderby' => 'title',
+    'order'=> 'ASC'
+ ));
 
   $recipes = [];
 
@@ -17,7 +19,7 @@ function get_recipes( ) {
       $recipe->slug = $post->post_name;
       $recipe->content = $post->post_content;
       $recipe->ingredients = array();
-      $recipe->image = get_the_post_thumbnail($post->ID);
+      // $recipe->image = get_the_post_thumbnail($post->ID);
       $recipe->source = get_field('source', $post->ID);
       $recipe->type = get_field('type', $post->ID);
       $recipe->preparation_time = get_field('preparation_time', $post->ID);

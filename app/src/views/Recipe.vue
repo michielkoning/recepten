@@ -1,51 +1,55 @@
 <template>
   <div class="recipe">
 
-      <router-link class="back" :to="{ name: 'list' }">
-        <icon
-          :width="16"
-          :height="16"
-          icon="chevron-left"
-         />
+    <router-link
+      :to="{ name: 'list' }"
+      class="back">
+      <icon
+        :width="16"
+        :height="16"
+        icon="chevron-left"
+      />
 
-        Terug</router-link>
+      Terug</router-link>
 
     <h1>{{ recipe.title }}</h1>
     <aside>
       <eaters />
-      <ingredients v-if="recipe.ingredients" :ingredients="recipe.ingredients" />
+      <ingredients
+        v-if="recipe.ingredients"
+        :ingredients="recipe.ingredients" />
 
       <dl>
-      <template v-if="recipe.source">
-        <dt>
-          <icon
-            :width="24"
-            :height="24"
-            icon="source"
-            title="Bron" />
-        </dt>
-        <dd>
-        <a
-          :href="recipe.source"
-          target="_blank"
-          class="source"
-          rel="noopener">
-            Bron </a>
-        </dd>
-      </template>
-      <template v-if="recipe.preparation_time">
-        <dt>
-        <icon
-          :width="24"
-          :height="24"
-          icon="clock"
-          title="Bron" />
-        </dt>
-        <dd>
-          {{ recipe.preparation_time }}
-          minuten
-        </dd>
-      </template>
+        <template v-if="recipe.source">
+          <dt>
+            <icon
+              :width="24"
+              :height="24"
+              icon="source"
+              title="Bron" />
+          </dt>
+          <dd>
+            <a
+              :href="recipe.source"
+              target="_blank"
+              class="source"
+              rel="noopener">
+              Bron </a>
+          </dd>
+        </template>
+        <template v-if="recipe.preparation_time">
+          <dt>
+            <icon
+              :width="24"
+              :height="24"
+              icon="clock"
+              title="Bron" />
+          </dt>
+          <dd>
+            {{ recipe.preparation_time }}
+            minuten
+          </dd>
+        </template>
         <dt>
           <icon
             :width="24"
@@ -60,7 +64,9 @@
     </aside>
     <div>
       <h2>Bereiding</h2>
-      <div class="preperation" v-html="recipe.content" />
+      <div
+        class="preperation"
+        v-html="recipe.content" />
     </div>
   </div>
 </template>
@@ -83,13 +89,13 @@ export default {
     };
   },
 
+  computed: {
+    ...mapState('recipes', ['recipes']),
+  },
+
   mounted() {
     this.getRecipe();
     document.title = `${this.recipe.title} | Recepten van Maaike & Michiel`;
-  },
-
-  computed: {
-    ...mapState('recipes', ['recipes']),
   },
 
   methods: {
@@ -114,6 +120,9 @@ export default {
   position: relative;
   align-self: self-end;
   padding: 0 0 0 1em;
+  @media (--print) {
+    display: none;
+  }
 
   & svg {
     transition: transform 0.1s ease-out;

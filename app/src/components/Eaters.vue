@@ -1,20 +1,20 @@
 <template>
   <div class="eaters">
     <button
-    class="add"
-      @click="changeAmountofEaters(totalEaters - 1)"
-      :disabled="(totalEaters <= 1)">-</button>
-      <div  class="amount">
+      :disabled="(totalEaters <= 1)"
+      class="add"
+      @click="changeAmountofEaters(totalEaters - 1)">-</button>
+    <div class="amount">
       {{ totalEaters }}
-    <template v-if="totalEaters === 1">
-      persoon
-    </template>
-    <template v-else>
-      personen
-    </template>
+      <template v-if="totalEaters === 1">
+        persoon
+      </template>
+      <template v-else>
+        personen
+      </template>
     </div>
     <button
-    class="substract"
+      class="substract"
       @click="changeAmountofEaters(totalEaters + 1)">+</button>
   </div>
 </template>
@@ -48,6 +48,10 @@ export default {
 .eaters {
   margin-bottom: 1em;
   display: flex;
+
+  @media (--print) {
+    display: none;
+  }
 }
 
 button {

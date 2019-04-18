@@ -4,23 +4,23 @@ const moduleState = {
 
 const getters = {
   categories: state => [...new Set(state.recipes.map(item => item.type))],
-  filterByCategories: state => (categories) => {
+  filterByCategories: state => (categories, term) => {
+    let recipes;
     if (categories.length > 0) {
-      let recipes = [];
+      recipes = [];
       categories.forEach((category) => {
         const recipesFromCategory = state.recipes.filter(
           recipe => recipe.type === category,
         );
         recipes = [...recipes, ...recipesFromCategory];
       });
-      return recipes;
+    } else {
+      recipes = state.recipes;
     }
-    return state.recipes;
+    const searchTerm = term.toLowerCase();
+    return recipes.filter(recipe => recipe.title.toLowerCase().includes(searchTerm),);
   },
-  search: state => term => state.recipes.filter((recipe) => {
-      const searchTerm = term.toLowerCase();
-      return recipe.title.toLowerCase().includes(searchTerm);
-    }),
+  searchList: state => state.recipes.map(recipe => recipe.title),
   getBySlug: state => slug => state.recipes.find(recipe => recipe.slug === slug),
 };
 

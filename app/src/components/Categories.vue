@@ -2,14 +2,16 @@
   <fieldset>
     <legend class="sr-only">Categoriën</legend>
     <ul>
-      <li v-for="category in categories" :key="category">
+      <li
+        v-for="category in categories"
+        :key="category">
         <input
-          class="sr-only"
-          type="checkbox"
           :id="`category-${category}`"
           :value="category"
           v-model="selectedCategories"
-          >
+          class="sr-only"
+          type="checkbox"
+        >
         <label :for="`category-${category}`" >{{ category }}</label>
       </li>
     </ul>
@@ -63,10 +65,13 @@ label {
   background: var(--white);
   transition: all 0.1s ease-out;
 
-  &:focus,
   &:hover {
     box-shadow: 0 0 0 1px var(--text-color);
   }
+}
+
+input:focus + label {
+  box-shadow: 0 0 0 1px var(--text-color);
 }
 
 input:checked + label {
