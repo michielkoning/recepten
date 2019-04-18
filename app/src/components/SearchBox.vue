@@ -1,25 +1,32 @@
 <template>
-  <div class="search-box" >
-    <icon
-      icon="search"
-      title="Zoeken" />
-    <input
-      v-model="searchTerm"
-      type="search"
-      @keydown.esc="reset"
-    >
-    <button
-      v-if="searchTerm.length"
-      @click="reset">
-      <icon
-        :width="18"
-        :height="18"
-        icon="close"
-        title="Zoeken"
-      />
-    </button>
+  <fieldset>
+    <legend class="sr-only">Zoeken</legend>
 
-  </div>
+    <div class="search-box" >
+      <label
+        class="sr-only"
+        for="search">Zoek naar recepten:</label>
+      <icon
+        icon="search"
+        title="Zoeken" />
+      <input
+        id="search"
+        v-model="searchTerm"
+        type="search"
+        @keydown.esc="reset"
+      >
+      <button
+        v-if="searchTerm.length"
+        @click="reset">
+        <icon
+          :width="18"
+          :height="18"
+          icon="close"
+          title="Zoeken"
+        />
+      </button>
+    </div>
+  </fieldset>
 </template>
 
 <script>
