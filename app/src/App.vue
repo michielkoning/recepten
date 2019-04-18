@@ -30,6 +30,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.getRecipes();
+  },
   methods: {
     ...mapActions({
       setAll: 'recipes/setAll',
@@ -44,9 +47,6 @@ export default {
         this.isLoading = false;
       }
     },
-  },
-  mounted() {
-    this.getRecipes();
   },
 };
 </script>

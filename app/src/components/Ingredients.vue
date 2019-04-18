@@ -29,6 +29,12 @@ export default {
   components: {
     Icon,
   },
+  filters: {
+    formatAmount(value) {
+      return formatter.format(value);
+    },
+  },
+
   props: {
     ingredients: {
       type: Array,
@@ -40,11 +46,6 @@ export default {
     ...mapState('settings', ['totalEaters']),
   },
 
-  filters: {
-    formatAmount(value) {
-      return formatter.format(value);
-    },
-  },
   watch: {
     totalEaters() {
       this.updateIngredients();
