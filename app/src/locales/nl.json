@@ -16,7 +16,9 @@
     "source": "Bron",
     "minutes": "minuten",
     "preparation": "Bereiding",
+    "preparation-time": "Bereidingstijd",
     "ingredients": "Ingredienten",
-    "persons": "persoon | personen"
+    "persons": "persoon | personen",
+    "category": "Categorie"
   }
 }

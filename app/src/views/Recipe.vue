@@ -3,7 +3,8 @@
 
     <router-link
       :to="{ name: 'list' }"
-      class="back">
+      class="back"
+    >
       <icon
         :width="16"
         :height="16"
@@ -17,7 +18,8 @@
       <eaters />
       <ingredients
         v-if="recipe.ingredients"
-        :ingredients="recipe.ingredients" />
+        :ingredients="recipe.ingredients"
+      />
 
       <dl>
         <template v-if="recipe.source">
@@ -25,16 +27,18 @@
             <icon
               :width="24"
               :height="24"
+              :title="$t('details.source')"
               icon="source"
-              title="Bron" />
+            />
           </dt>
           <dd>
             <a
               :href="recipe.source"
               target="_blank"
               class="source"
-              rel="noopener">
-              Bron </a>
+              rel="noopener"
+            >
+              {{ $t('details.source') }} </a>
           </dd>
         </template>
         <template v-if="recipe.preparation_time">
@@ -42,8 +46,9 @@
             <icon
               :width="24"
               :height="24"
+              :title="$t('details.preparation-time')"
               icon="clock"
-              title="Bron" />
+            />
           </dt>
           <dd>
             {{ recipe.preparation_time }}
@@ -54,8 +59,9 @@
           <icon
             :width="24"
             :height="24"
+            :title="$t('details.category')"
             icon="category"
-            title="Type" />
+          />
         </dt>
         <dd>
           {{ recipe.type }}
@@ -66,7 +72,8 @@
       <h2>{{ $t('details.preparation') }}</h2>
       <div
         class="preperation"
-        v-html="recipe.content" />
+        v-html="recipe.content"
+      />
     </div>
   </div>
 </template>
