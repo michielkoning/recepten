@@ -7,7 +7,7 @@
   >
     <title
       v-if="title"
-      lang="nl"
+      :lang="lang"
     >{{ title }}</title>
 
     <g :fill="color">
@@ -42,6 +42,11 @@ export default {
       type: [Number, String],
       default: 24,
     },
+  },
+  data() {
+    return {
+      lang: process.env.VUE_APP_I18N_LOCALE,
+    };
   },
 };
 </script>
