@@ -59,23 +59,23 @@ li {
 
 label {
   padding: 0.25em 0.75em;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--black);
+  color: var(--black);
   border-radius: 1em;
   background: var(--white);
   transition: all 0.1s ease-out;
 
   &:hover {
-    box-shadow: 0 0 0 1px var(--text-color);
+    box-shadow: 0 0 0 1px var(--black);
   }
 }
 
 input:focus + label {
-  box-shadow: 0 0 0 1px var(--text-color);
+  box-shadow: 0 0 0 1px var(--black);
 }
 
 input:checked + label {
-  background: var(--primary-color);
+  background: var(--black);
   color: var(--white);
 }
 </style>

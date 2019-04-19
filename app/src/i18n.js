@@ -24,7 +24,7 @@ const numberFormats = {
   nl: {
     decimal: {
       style: 'decimal',
-      maximumFractionDigits: 1,
+      maximumFractionDigits: 2,
     },
   },
 };

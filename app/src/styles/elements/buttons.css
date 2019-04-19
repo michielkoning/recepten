@@ -20,7 +20,7 @@ button {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--black);
   text-decoration-skip: auto;
   @media (--print) {
     text-decoration: none;
