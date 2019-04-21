@@ -1,8 +1,9 @@
 <template>
   <div
-    v-if="!isLoading"
+    v-if="list.length"
     id="app"
     class="center">
+
     <transition :name="transitionName">
       <router-view/>
     </transition>
@@ -10,15 +11,17 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   data() {
     return {
       transitionName: '',
-      isLoading: true,
     };
+  },
+
+  computed: {
+    ...mapState('recipes', ['list']),
   },
 
   watch: {
@@ -31,22 +34,12 @@ export default {
     },
   },
   mounted() {
-    this.getRecipes();
+    this.setAll();
   },
   methods: {
     ...mapActions({
       setAll: 'recipes/setAll',
     }),
-    async getRecipes() {
-      try {
-        const response = await axios.get('?rest_route=/recipes/v1/all');
-        this.setAll(response.data);
-      } catch (error) {
-        window.console.error(error);
-      } finally {
-        this.isLoading = false;
-      }
-    },
   },
 };
 </script>

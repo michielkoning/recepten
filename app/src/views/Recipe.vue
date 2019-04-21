@@ -96,10 +96,6 @@ export default {
     };
   },
 
-  computed: {
-    ...mapState('recipes', ['recipes']),
-  },
-
   mounted() {
     this.getRecipe();
     document.title = `${this.recipe.title}${this.$t('meta.pageTitle')}`;

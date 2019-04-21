@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const moduleState = {
   list: [],
 };
@@ -32,8 +34,15 @@ const mutations = {
 };
 
 const actions = {
-  setAll: ({ commit }, payload) => {
-    commit('setAll', payload);
+  setAll: async ({ commit }) => {
+    try {
+      const response = await axios.get('?rest_route=/recipes/v1/all');
+      commit('setAll', response.data);
+    } catch (error) {
+      window.console.error(error);
+    } finally {
+      // this.isLoading = false;
+    }
   },
 };
 
