@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import Icon from '@/components/Icon.vue';
 import Ingredients from '@/components/Ingredients.vue';
 import Eaters from '@/components/Eaters.vue';
@@ -96,6 +96,12 @@ export default {
     };
   },
 
+  computed: {
+    ...mapGetters({
+      getBySlug: 'recipes/getBySlug',
+    }),
+  },
+
   mounted() {
     this.getRecipe();
     document.title = `${this.recipe.title}${this.$t('meta.pageTitle')}`;
@@ -104,7 +110,7 @@ export default {
   methods: {
     getRecipe() {
       const { slug } = this.$route.params;
-      this.recipe = this.$store.getters['recipes/getBySlug'](slug);
+      this.recipe = this.getBySlug(slug);
     },
   },
 };

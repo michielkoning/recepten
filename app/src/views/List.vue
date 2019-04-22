@@ -2,7 +2,7 @@
   <div class="home">
     <search-box
       :list="searchList"
-      @search="search" />
+      v-model="searchTerm" />
     <categories />
     <h1>{{ $t('list.title') }}</h1>
     <ul v-if="recipes.length">
@@ -42,24 +42,16 @@ export default {
     ...mapState('settings', ['selectedCategories']),
     ...mapGetters({
       searchList: 'recipes/searchList',
+      filterByCategories: 'recipes/filterByCategories',
     }),
 
     recipes() {
-      return this.$store.getters['recipes/filterByCategories'](
-        this.selectedCategories,
-        this.searchTerm,
-      );
+      return this.filterByCategories(this.selectedCategories, this.searchTerm);
     },
   },
 
   mounted() {
     document.title = `${this.$t('list.pageTitle')}${this.$t('meta.pageTitle')}`;
-  },
-
-  methods: {
-    search(value) {
-      this.searchTerm = value;
-    },
   },
 };
 </script>

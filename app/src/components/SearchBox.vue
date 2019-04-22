@@ -11,6 +11,7 @@
         id="search"
         v-model="searchTerm"
         type="search"
+        @input="change"
         @keydown.esc="reset"
       >
       <button
@@ -39,12 +40,10 @@ export default {
       searchTerm: '',
     };
   },
-  watch: {
-    searchTerm(value) {
-      this.$emit('search', value);
-    },
-  },
   methods: {
+    change() {
+      this.$emit('input', this.searchTerm);
+    },
     reset() {
       this.searchTerm = '';
     },
