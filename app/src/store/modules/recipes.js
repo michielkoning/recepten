@@ -11,9 +11,7 @@ const getters = {
     if (categories.length > 0) {
       recipes = [];
       categories.forEach((category) => {
-        const recipesFromCategory = state.list.filter(
-          recipe => recipe.type === category,
-        );
+        const recipesFromCategory = state.list.filter(recipe => recipe.type === category);
         recipes = [...recipes, ...recipesFromCategory];
       });
     } else {
