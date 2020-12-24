@@ -14,6 +14,13 @@
     "vue-i18n": "^9.0.0-beta.16",
     "vue-router": "^4.0.0-0"
   },
+  "vue": {
+    "pwa": {
+      "workboxOptions": {
+        "navigateFallback": "index.html"
+      }
+    }
+  },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.3.0",
