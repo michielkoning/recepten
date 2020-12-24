@@ -10,11 +10,3 @@ createApp(App)
   .use(i18n)
   .provide('recipes', readonly(recipes))
   .mount('#app');
-
-if ('registerProtocolHandler' in navigator) {
-  navigator.registerProtocolHandler(
-    'web+burger',
-    'https://nifty-euclid-02bdec.netlify.app/?burger=%s',
-    'Burger handler',
-  );
-}
