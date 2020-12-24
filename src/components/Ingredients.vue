@@ -2,7 +2,7 @@
   <div class="ingredients">
     <h2>{{ $t('details.ingredients') }}</h2>
     <ul>
-      <li v-for="(ingredient, index) in ingredients" :key="index">
+      <li v-for="(ingredient, index) in ingredientsForTotalEaters" :key="index">
         <template v-if="ingredient.title">
           <span v-if="ingredient.amount">
             {{ $n(ingredient.amount, 'decimal') }}
@@ -21,23 +21,18 @@ export default {
       type: Array,
       required: true,
     },
-  },
-
-  watch: {
-    totalEaters() {
-      this.updateIngredients();
+    totalEaters: {
+      type: Number,
+      required: true,
     },
   },
-  mounted() {
-    this.updateIngredients();
-  },
-  methods: {
-    updateIngredients() {
-      this.ingredients.forEach(ingredient => {
-        if (ingredient.amount) {
-          const newIngredient = ingredient;
-          newIngredient.amount = this.totalEaters * newIngredient.singleAmount;
-        }
+  computed: {
+    ingredientsForTotalEaters() {
+      return this.ingredients.map(ingredient => {
+        return {
+          ...ingredient,
+          amount: this.totalEaters * ingredient.singleAmount,
+        };
       });
     },
   },

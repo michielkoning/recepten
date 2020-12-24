@@ -8,10 +8,11 @@
 
     <h1>{{ recipe.title }}</h1>
     <aside>
-      <eaters />
+      <eaters v-model="totalEaters" />
       <ingredients
         v-if="recipe.ingredients"
         :ingredients="recipe.ingredients"
+        :total-eaters="totalEaters"
       />
 
       <dl>
@@ -70,7 +71,7 @@
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import Icon from '@/components/Icon.vue';
 import Ingredients from '@/components/Ingredients.vue';
@@ -86,11 +87,12 @@ export default {
     const { params } = useRoute();
     const { slug } = params;
     const recipes = inject('recipes');
-    console.log(slug);
-
     const recipe = recipes.find(r => r.slug === slug);
+    const totalEaters = ref(4);
+
     return {
       recipe,
+      totalEaters,
     };
   },
 };

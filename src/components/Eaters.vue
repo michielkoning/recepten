@@ -1,16 +1,16 @@
 <template>
   <div class="eaters">
     <button
-      :disabled="totalEaters <= 1"
+      :disabled="modelValue <= 1"
       class="add"
-      @click="changeAmountofEaters(totalEaters - 1)"
+      @click="changeAmountofEaters(modelValue - 1)"
     >
       -
     </button>
     <div class="amount">
-      {{ totalEaters }} {{ $tc('details.persons', totalEaters) }}
+      {{ modelValue }} {{ $tc('details.persons', modelValue) }}
     </div>
-    <button class="substract" @click="changeAmountofEaters(totalEaters + 1)">
+    <button class="substract" @click="changeAmountofEaters(modelValue + 1)">
       +
     </button>
   </div>
@@ -18,15 +18,21 @@
 
 <script>
 export default {
-  data() {
-    return {
-      totalEaters: 4,
-    };
-  },
-  methods: {
-    changeAmountofEaters(counter) {
-      this.totalEaters = counter;
+  props: {
+    modelValue: {
+      type: Number,
+      required: true,
     },
+  },
+  emits: ['update:modelValue'],
+  setup(_, { emit }) {
+    const changeAmountofEaters = counter => {
+      emit('update:modelValue', counter);
+    };
+
+    return {
+      changeAmountofEaters,
+    };
   },
 };
 </script>
