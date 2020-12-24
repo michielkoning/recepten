@@ -1,36 +1,31 @@
 <template>
   <div class="eaters">
     <button
-      :disabled="modelValue <= 1"
+      :disabled="totalEaters <= 1"
       class="add"
-      @click="changeAmountofEaters(modelValue - 1)"
+      @click="changeAmountofEaters(totalEaters - 1)"
     >
       -
     </button>
     <div class="amount">
-      {{ modelValue }} {{ $tc('details.persons', modelValue) }}
+      {{ totalEaters }} {{ $tc('details.persons', totalEaters) }}
     </div>
-    <button class="substract" @click="changeAmountofEaters(modelValue + 1)">
+    <button class="substract" @click="changeAmountofEaters(totalEaters + 1)">
       +
     </button>
   </div>
 </template>
 
 <script>
+import { inject } from 'vue';
+
 export default {
-  props: {
-    modelValue: {
-      type: Number,
-      required: true,
-    },
-  },
-  emits: ['update:modelValue'],
-  setup(_, { emit }) {
-    const changeAmountofEaters = counter => {
-      emit('update:modelValue', counter);
-    };
+  setup() {
+    const totalEaters = inject('totalEaters');
+    const changeAmountofEaters = inject('changeAmountofEaters');
 
     return {
+      totalEaters,
       changeAmountofEaters,
     };
   },

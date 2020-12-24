@@ -8,11 +8,10 @@
 
     <h1>{{ recipe.title }}</h1>
     <aside>
-      <eaters v-model="totalEaters" />
+      <eaters />
       <ingredients
         v-if="recipe.ingredients"
         :ingredients="recipe.ingredients"
-        :total-eaters="totalEaters"
       />
 
       <dl>

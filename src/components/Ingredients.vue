@@ -15,26 +15,29 @@
 </template>
 
 <script>
+import { computed, inject } from 'vue';
+
 export default {
   props: {
     ingredients: {
       type: Array,
       required: true,
     },
-    totalEaters: {
-      type: Number,
-      required: true,
-    },
   },
-  computed: {
-    ingredientsForTotalEaters() {
-      return this.ingredients.map(ingredient => {
+  setup(props) {
+    const totalEaters = inject('totalEaters');
+    const ingredientsForTotalEaters = computed(() => {
+      return props.ingredients.map(ingredient => {
         return {
           ...ingredient,
-          amount: this.totalEaters * ingredient.singleAmount,
+          amount: totalEaters.value * ingredient.singleAmount,
         };
       });
-    },
+    });
+
+    return {
+      ingredientsForTotalEaters,
+    };
   },
 };
 </script>

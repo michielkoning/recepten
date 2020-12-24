@@ -2,17 +2,15 @@
   <fieldset>
     <legend class="sr-only">{{ $t('list.categories') }}</legend>
     <ul>
-      <li
-        v-for="category in categories"
-        :key="category">
+      <li v-for="category in categories" :key="category">
         <input
           :id="`category-${category}`"
-          :value="category"
           v-model="selectedCategories"
+          :value="category"
           class="sr-only"
           type="checkbox"
-        >
-        <label :for="`category-${category}`" >{{ category }}</label>
+        />
+        <label :for="`category-${category}`">{{ category }}</label>
       </li>
     </ul>
   </fieldset>
