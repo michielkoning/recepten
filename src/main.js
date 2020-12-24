@@ -10,3 +10,11 @@ createApp(App)
   .use(i18n)
   .provide('recipes', readonly(recipes))
   .mount('#app');
+
+if ('registerProtocolHandler' in navigator) {
+  navigator.registerProtocolHandler(
+    'web+burger',
+    'https://recepten.michielkoning.nl/?burger=%s',
+    'Burger handler',
+  );
+}
