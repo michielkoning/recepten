@@ -45,6 +45,8 @@ export default {
 button {
   border: 2px solid var(--black);
   flex: 0 0 1.5em;
+  touch-action: manipulation;
+
   &:disabled {
     color: var(--gray);
   }
