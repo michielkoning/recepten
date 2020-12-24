@@ -14,7 +14,7 @@ createApp(App)
 if ('registerProtocolHandler' in navigator) {
   navigator.registerProtocolHandler(
     'web+burger',
-    'https://recepten.michielkoning.nl/?burger=%s',
+    'https://nifty-euclid-02bdec.netlify.app/?burger=%s',
     'Burger handler',
   );
 }
