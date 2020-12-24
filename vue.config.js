@@ -2,8 +2,7 @@ module.exports = {
   pwa: {
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: 'src/service-worker.js',
-      exclude: [/\.map$/, /manifest\.json$/],
+      navigateFallback: 'index.html',
     },
     themeColor: '#1da025',
   },
