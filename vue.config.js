@@ -1,9 +1,9 @@
-module.exports = {
-  pwa: {
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      navigateFallback: 'index.html',
-    },
-    themeColor: '#1da025',
-  },
-};
+// module.exports = {
+//   pwa: {
+//     workboxPluginMode: 'InjectManifest',
+//     workboxOptions: {
+//       navigateFallback: 'index.html',
+//     },
+//     themeColor: '#1da025',
+//   },
+// };
