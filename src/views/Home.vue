@@ -1,18 +1,41 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <hello-world msg="Welcome to Your Vue.js App" />
+    <categories />
+    <h1>{{ $t('list.title') }}</h1>
+    <ul v-if="recipes.length">
+      <li v-for="recipe in recipes" :key="recipe.slug">
+        <router-link :to="{ name: 'Recipe', params: { slug: recipe.slug } }">
+          {{ recipe.title }}
+        </router-link>
+      </li>
+    </ul>
+    <p v-else>
+      {{ $t('list.no-results') }}
+    </p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { inject } from 'vue';
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld,
+  setup() {
+    const recipes = inject('recipes');
+    return {
+      recipes,
+    };
   },
 };
 </script>
+
+<style lang="postcss" scoped>
+ul {
+  list-style: none outside;
+  padding-left: 0;
+}
+
+a {
+  display: block;
+}
+</style>
