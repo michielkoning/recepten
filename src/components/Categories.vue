@@ -5,10 +5,11 @@
       <li v-for="category in categories" :key="category">
         <input
           :id="`category-${category}`"
-          v-model="selectedCategories"
           :value="category"
           class="sr-only"
           type="checkbox"
+          :checked="modelValue.includes(category)"
+          @change="change(category)"
         />
         <label :for="`category-${category}`">{{ category }}</label>
       </li>
@@ -17,27 +18,36 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { inject, computed } from 'vue';
 
 export default {
-  computed: {
-    ...mapGetters({
-      categories: 'recipes/categories',
-    }),
-    selectedCategories: {
-      get() {
-        return this.$store.state.settings.selectedCategories;
-      },
-      set(value) {
-        this.setCategories(value);
-      },
+  props: {
+    modelValue: {
+      type: Array,
+      default: () => [],
     },
   },
+  emits: ['update:modelValue'],
+  setup(props, { emit }) {
+    const recipes = inject('recipes');
+    const categories = computed(() => [
+      ...new Set(recipes.map(item => item.type)),
+    ]);
+    const change = value => {
+      const checked = props.modelValue.slice();
+      const found = checked.indexOf(value);
+      if (found !== -1) {
+        checked.splice(found, 1);
+      } else {
+        checked.push(value);
+      }
+      emit('update:modelValue', checked);
+    };
 
-  methods: {
-    ...mapActions({
-      setCategories: 'settings/setSelectedCategories',
-    }),
+    return {
+      change,
+      categories,
+    };
   },
 };
 </script>

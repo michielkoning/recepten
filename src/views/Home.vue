@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <categories />
+    <categories v-model="selectedCategories" />
     <h1>{{ $t('list.title') }}</h1>
-    <ul v-if="recipes.length">
-      <li v-for="recipe in recipes" :key="recipe.slug">
+    <ul v-if="filterByCategories.length">
+      <li v-for="recipe in filterByCategories" :key="recipe.slug">
         <router-link :to="{ name: 'Recipe', params: { slug: recipe.slug } }">
           {{ recipe.title }}
         </router-link>
@@ -16,14 +16,35 @@
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject, ref, computed } from 'vue';
+import Categories from '@/components/Categories.vue';
 
 export default {
   name: 'Home',
+  components: {
+    Categories,
+  },
   setup() {
     const recipes = inject('recipes');
+    const selectedCategories = ref([]);
+    const filterByCategories = computed(() => {
+      let filteredRecipes;
+      if (selectedCategories.value.length > 0) {
+        filteredRecipes = [];
+        selectedCategories.value.forEach(category => {
+          const recipesFromCategory = recipes.filter(
+            recipe => recipe.type === category,
+          );
+          filteredRecipes = [...filteredRecipes, ...recipesFromCategory];
+        });
+        return filteredRecipes;
+      }
+      return recipes;
+    });
     return {
       recipes,
+      selectedCategories,
+      filterByCategories,
     };
   },
 };
