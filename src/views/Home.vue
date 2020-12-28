@@ -2,8 +2,8 @@
   <div class="home">
     <categories v-model="selectedCategories" />
     <h1>{{ $t('list.title') }}</h1>
-    <ul v-if="filterByCategories.length">
-      <li v-for="recipe in filterByCategories" :key="recipe.slug">
+    <ul v-if="filteredRecipes.length">
+      <li v-for="recipe in filteredRecipes" :key="recipe.slug">
         <router-link :to="{ name: 'Recipe', params: { slug: recipe.slug } }">
           {{ recipe.title }}
         </router-link>
@@ -27,24 +27,23 @@ export default {
   setup() {
     const recipes = inject('recipes');
     const selectedCategories = ref([]);
-    const filterByCategories = computed(() => {
-      let filteredRecipes;
+    const filteredRecipes = computed(() => {
+      let list;
       if (selectedCategories.value.length > 0) {
-        filteredRecipes = [];
+        list = [];
         selectedCategories.value.forEach(category => {
           const recipesFromCategory = recipes.filter(
             recipe => recipe.type === category,
           );
-          filteredRecipes = [...filteredRecipes, ...recipesFromCategory];
+          list = [...list, ...recipesFromCategory];
         });
-        return filteredRecipes;
+        return list;
       }
       return recipes;
     });
     return {
-      recipes,
       selectedCategories,
-      filterByCategories,
+      filteredRecipes,
     };
   },
 };

@@ -8,6 +8,15 @@ const routes = [
     component: Home,
   },
   {
+    path: '/boodschappenlijst',
+    name: 'ShoppingList',
+    component: () =>
+      import(
+        /* webpackChunkName: "ShoppingList" */ '../views/ShoppingList.vue'
+      ),
+    props: true,
+  },
+  {
     path: '/:slug',
     name: 'Recipe',
     props: true,

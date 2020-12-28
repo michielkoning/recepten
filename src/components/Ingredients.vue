@@ -11,6 +11,7 @@
         </template>
       </li>
     </ul>
+    <button @click="add">add</button>
   </div>
 </template>
 
@@ -26,6 +27,7 @@ export default {
   },
   setup(props) {
     const totalEaters = inject('totalEaters');
+    const updateList = inject('updateList');
     const ingredientsForTotalEaters = computed(() => {
       return props.ingredients.map(ingredient => {
         return {
@@ -34,8 +36,12 @@ export default {
         };
       });
     });
+    const add = () => {
+      updateList(props.ingredients);
+    };
 
     return {
+      add,
       ingredientsForTotalEaters,
     };
   },
