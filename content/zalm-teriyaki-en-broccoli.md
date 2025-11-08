@@ -1,0 +1,7 @@
+# Zalm teriyaki en broccoli
+
+Doe de sesamolie, sojasaus, basterdsuiker, knoflook, gember, water en honing in een pannetje en verwarm en roer goed door elkaar met een garde. Breng zachtjes aan de kook en laat ietsjes indikken. Weinig tijd of geduld? Los een theelepel maizena op een eetlepel water en voeg toe aan de saus en roer goed door en laat indikken maar laat hem niet te dik worden want hij moet ook nog even op het vuur staan met de zalm er in. Leg de zalm in de saus en laat 8 minuutjes zachtjes sudderen. Draai de zalm dan voorzichtig om en laat ook de andere zijde zachtjes garen in de saus. Schep ondertussen een paar keer wat saus over de bovenzijde van de zalm. Je krijgt zo een hele malse zalm en hij droogt niet uit. Na ongeveer 12 minuten is hij klaar (afhankelijk van de dikte). De zalm teriyaki mag eventueel nog een beetje rosé zijn van binnen.
+
+Blancheer de broccoliroosjes een paar minuten in een pan met water. Kook ook de noedels gaar volgens de verpakking. Doe de noedels en de broccoli in een wokpan en voeg de sesamolie en sojasaus toe. Hak de rode peper in kleine stukjes en voeg toe, bewaar eventueel een paar ringetjes rode peper voor de garnering.
+
+Hak de bosuien in ringetjes en voeg toe en bak alles een paar minuten. Voeg op het laatst de cashewnoten toe. Serveer de noedels met groenten met de zalm teriyaki en garneer het gerecht met wat sesam en rode peper.
