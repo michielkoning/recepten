@@ -10,6 +10,9 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   compatibilityDate: '2025-07-15',
+  nitro: {
+    preset: 'netlify-static',
+  },
   typescript: {
     typeCheck: true,
   },
@@ -19,16 +22,6 @@ export default defineNuxtConfig({
     },
   },
   vuetify: {
-    // moduleOptions: {
-    //   ssrClientHints: {
-    //     prefersColorScheme: true,
-    //     prefersColorSchemeOptions: {
-    //       useBrowserThemeOnly: true,
-    //       darkThemeName: 'dark',
-    //       lightThemeName: 'light'
-    //     }
-    //   }
-    // },
     vuetifyOptions: {
       theme: {
         defaultTheme: 'dark',
