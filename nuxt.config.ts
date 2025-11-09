@@ -13,6 +13,10 @@ export default defineNuxtConfig({
       nativeSqlite: true,
     },
   },
+  experimental: {
+    payloadExtraction: true,
+  },
+
   compatibilityDate: '2025-07-15',
   nitro: {
     preset: 'netlify-static',
