@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2,html}'],
+      globPatterns: ['**/*.{js,css,woff2,html,wasm}'],
     },
     manifest: {
       id: 'recepten',
