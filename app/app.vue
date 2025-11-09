@@ -1,5 +1,6 @@
 <template>
   <nuxt-layout>
+    <nuxt-pwa-manifest />
     <nuxt-route-announcer />
     <v-app>
       <v-main>
