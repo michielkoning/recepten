@@ -9,10 +9,15 @@ export default defineNuxtConfig({
     'vuetify-nuxt-module',
   ],
   devtools: { enabled: true },
-  compatibilityDate: '2025-07-15',
-  nitro: {
-    preset: 'netlify-static',
+  content: {
+    experimental: {
+      nativeSqlite: true,
+    },
   },
+  compatibilityDate: '2025-07-15',
+  // nitro: {
+  //   preset: 'netlify-static',
+  // },
   typescript: {
     typeCheck: true,
   },
