@@ -14,6 +14,11 @@ const { data } = await useAsyncData('recipes', () => {
 }, {
   watch: [filters],
 })
+
+useSeoMeta({
+  title: 'Recepten',
+  description: 'Recepten',
+})
 </script>
 
 <template>

@@ -41,6 +41,7 @@ useSeoMeta({
         <content-renderer
           :value="data"
           :title="undefined"
+          class="body"
         />
         <v-chip-group>
           <v-chip
@@ -55,3 +56,27 @@ useSeoMeta({
     Recipe not found
   </div>
 </template>
+
+<style scoped>
+.body {
+  counter-reset: preperation;
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+:deep(p) {
+  position: relative;
+  padding: 0 0 1.25em 0;
+  display: flex;
+  gap: 0.75em;
+
+  &::before {
+    font-family: var(--font-family-headings);
+    font-size: 1.75em;
+    line-height: 1;
+    transform: translateY(0.1em);
+    counter-increment: preperation;
+    content: counter(preperation);
+  }
+}
+</style>
