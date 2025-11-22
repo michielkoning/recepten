@@ -8,11 +8,6 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   devtools: { enabled: true },
-  content: {
-    experimental: {
-      nativeSqlite: true,
-    },
-  },
   experimental: {
     payloadExtraction: true,
   },
