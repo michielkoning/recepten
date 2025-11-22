@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-07-15',
   nitro: {
-    preset: 'netlify-static',
+    preset: 'netlify',
   },
   typescript: {
     typeCheck: true,
