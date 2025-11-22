@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
 
   modules: [
+    '@nuxt/content',
     '@nuxt/eslint',
     'vuetify-nuxt-module',
     '@vite-pwa/nuxt',
@@ -30,7 +31,7 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2}'],
+      globPatterns: ['**/*.{js,css,woff2,html}'],
     },
     manifest: {
       id: 'recepten',
