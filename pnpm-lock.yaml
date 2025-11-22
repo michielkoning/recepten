@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@nuxt/content':
-        specifier: 3.8.2
+        specifier: ^3.8.2
         version: 3.8.2(better-sqlite3@12.4.1)(magicast@0.5.1)
       '@nuxt/eslint':
         specifier: 1.10.0
