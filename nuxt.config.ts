@@ -8,13 +8,18 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   devtools: { enabled: true },
+  content: {
+    experimental: {
+      nativeSqlite: true,
+    },
+  },
   experimental: {
     payloadExtraction: true,
   },
 
   compatibilityDate: '2025-07-15',
   nitro: {
-    preset: 'netlify',
+    preset: 'netlify-static',
   },
   typescript: {
     typeCheck: true,
@@ -31,7 +36,7 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2,html}'],
+      globPatterns: ['**/*.{js,css,woff2,html,wasm,txt}'],
     },
     manifest: {
       id: 'recepten',
