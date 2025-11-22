@@ -8,18 +8,12 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   devtools: { enabled: true },
-  content: {
-    experimental: {
-      nativeSqlite: true,
-    },
-  },
   experimental: {
     payloadExtraction: true,
   },
-
   compatibilityDate: '2025-07-15',
   nitro: {
-    preset: 'netlify-static',
+    preset: 'netlify',
   },
   typescript: {
     typeCheck: true,
