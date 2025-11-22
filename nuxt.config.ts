@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   devtools: { enabled: true },
+  content: {
+    experimental: {
+      nativeSqlite: true,
+    },
+  },
   experimental: {
     payloadExtraction: true,
   },
@@ -31,7 +36,7 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2,html,wasm,txt}'],
+      globPatterns: ['**/*.{js,css,woff2}'],
     },
     manifest: {
       id: 'recepten',
