@@ -10,7 +10,7 @@ ingredients:
 - 1 theelepel grof zeezout
 - 15 gr boter
 - 1 zoete ui. fijngehakt
- - 135 gr boerenkool, fijngesneden
+- 135 gr boerenkool, fijngesneden
 - 1600 ml groentebouillon
 - 1 blik (van 400 gr) tomatenblokjes (bewaar het sap)
 - 1 eetlepel honing
