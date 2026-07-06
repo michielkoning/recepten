@@ -8,6 +8,7 @@
 
 :root {
   interpolate-size: allow-keywords;
+  color-scheme: light dark;
 }
 
 ::selection {
@@ -26,8 +27,4 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   background: var(--color-background);
-}
-
-p:empty {
-  display: none;
 }

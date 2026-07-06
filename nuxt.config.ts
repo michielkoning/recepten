@@ -11,9 +11,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/base.css'],
   compatibilityDate: '2025-07-15',
-  // nitro: {
-  //   preset: 'netlify',
-  // },
+  nitro: {
+    preset: 'netlify',
+  },
   typescript: {
     typeCheck: true,
   },

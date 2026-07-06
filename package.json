@@ -48,5 +48,11 @@
     "vuetify-nuxt-module": "0.19.5",
     "zod": "^4.4.3"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.20.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "sqlite3"
+    ]
+  }
 }
