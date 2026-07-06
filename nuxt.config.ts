@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -9,6 +8,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   devtools: { enabled: true },
+  css: ['~/assets/css/base.css'],
   experimental: {
     payloadExtraction: true,
   },
@@ -18,6 +18,31 @@ export default defineNuxtConfig({
   // },
   typescript: {
     typeCheck: true,
+  }, postcss: {
+    plugins: {
+      'postcss-custom-media-generator': {
+        'xs': 480,
+        'sm': 640,
+        'md': 768,
+        'lg': 1024,
+        'xlg': 1240,
+        '--navigation-md': '(width >= 960px)',
+        '--navigation-lg': '(width >= 1024px)',
+      },
+      'postcss-mixins': {
+        mixinsDir: './app/assets/css/mixins/',
+      },
+      'autoprefixer': false,
+      'postcss-preset-env': {
+        stage: false,
+        features: {
+          'nesting-rules': false,
+          'custom-media-queries': true,
+          'media-query-ranges': true,
+        },
+      },
+      'cssnano': {},
+    },
   },
   eslint: {
     config: {
