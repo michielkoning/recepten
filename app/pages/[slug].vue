@@ -10,7 +10,7 @@ useSeoMeta({
 
 <template>
   <div v-if="data">
-    <v-app-bar :title="data.title">
+    <v-app-bar title="Recepten">
       <template #prepend>
         <v-toolbar-items>
           <v-btn
@@ -25,14 +25,17 @@ useSeoMeta({
         cols="12"
         sm="3"
       >
-        <ul v-if="data.ingredients?.length">
-          <li
-            v-for="item in data.ingredients"
-            :key="item"
-          >
-            {{ item }}
-          </li>
-        </ul>
+        <div v-if="data.ingredients?.length">
+          <h2>Ingredienten</h2>
+          <ul class="ingredients">
+            <li
+              v-for="item in data.ingredients"
+              :key="item"
+            >
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </v-col>
       <v-col
         cols="12"
@@ -59,24 +62,32 @@ useSeoMeta({
 
 <style scoped>
 .body {
-  counter-reset: preperation;
-  margin: 0 0 2em;
   padding: 0;
+  margin: 0 0 2em;
+  counter-reset: preperation;
+}
+
+.ingredients {
+  list-style: none outside;
+}
+
+li {
+  margin-block-end: 0.25em;
 }
 
 :deep(p) {
   position: relative;
-  padding: 0 0 1.25em 0;
   display: flex;
   gap: 0.75em;
+  padding: 0 0 1.25em;
 
   &::before {
     font-family: var(--font-family-headings);
     font-size: 1.75em;
     line-height: 1;
-    transform: translateY(0.1em);
-    counter-increment: preperation;
     content: counter(preperation);
+    counter-increment: preperation;
+    transform: translateY(0.1em);
   }
 }
 </style>

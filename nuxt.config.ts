@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
+    '@nuxtjs/stylelint-module',
     'vuetify-nuxt-module',
     '@vite-pwa/nuxt',
   ],
@@ -12,9 +13,9 @@ export default defineNuxtConfig({
     payloadExtraction: true,
   },
   compatibilityDate: '2025-07-15',
-  nitro: {
-    preset: 'netlify',
-  },
+  // nitro: {
+  //   preset: 'netlify',
+  // },
   typescript: {
     typeCheck: true,
   },
