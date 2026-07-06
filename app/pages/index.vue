@@ -22,19 +22,17 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
-    <v-app-bar title="Recepten" />
-    <template v-if="data">
-      <app-category v-model="filters" />
-      <v-list v-if="data?.length">
-        <v-list-item
-          v-for="item in data"
-          :key="item.id"
-          :to="item.path"
-          :title="item.title"
-          append-icon="mdi-chevron-right"
-        />
-      </v-list>
-    </template>
+  <div v-if="data">
+    <!-- <app-category v-model="filters" /> -->
+    <ul v-if="data.length">
+      <li
+        v-for="item in data"
+        :key="item.id"
+      >
+        <nuxt-link :to="item.path">
+          {{ item.title }}
+        </nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>

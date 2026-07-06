@@ -6,68 +6,60 @@ useSeoMeta({
   title: data.value?.title,
   description: data.value?.description,
 })
+
+definePageMeta({
+  layout: {
+    props: {
+      title: 'Terug naar recepten',
+    },
+  },
+})
 </script>
 
 <template>
-  <div v-if="data">
-    <v-app-bar title="Recepten">
-      <template #prepend>
-        <v-toolbar-items>
-          <v-btn
-            icon="mdi-chevron-left"
-            to="/"
-          />
-        </v-toolbar-items>
-      </template>
-    </v-app-bar>
-    <v-row>
-      <v-col
-        cols="12"
-        sm="3"
-      >
-        <div v-if="data.ingredients?.length">
-          <h2>Ingredienten</h2>
-          <ul class="ingredients">
-            <li
-              v-for="item in data.ingredients"
-              :key="item"
-            >
-              {{ item }}
-            </li>
-          </ul>
-        </div>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="9"
-      >
-        <content-renderer
-          :value="data"
-          :title="undefined"
-          class="body"
+  <div
+    v-if="data"
+    class="wrapper"
+  >
+    <aside v-if="data.ingredients?.length">
+      <h2>Ingredienten</h2>
+      <ul>
+        <li
+          v-for="item in data.ingredients"
+          :key="item"
+        >
+          {{ item }}
+        </li>
+      </ul>
+    </aside>
+    <content-renderer
+      :value="data"
+      :title="undefined"
+      class="body"
+    />
+    <!-- <v-chip-group>
+        <v-chip
+          v-if="data.category"
+          :text="data.category"
         />
-        <v-chip-group>
-          <v-chip
-            v-if="data.category"
-            :text="data.category"
-          />
-        </v-chip-group>
-      </v-col>
-    </v-row>
+      </v-chip-group> -->
   </div>
   <div v-else>
     Recipe not found
   </div>
 </template>
 
-<style scoped>
-.body {
-  padding: 0;
-  margin: 0 0 2em;
-  counter-reset: preperation;
+<style lang="css" scoped>
+.wrapper {
+  display: grid;
+  gap: var(--spacing-4);
+
+  @media (--lg) {
+    grid-template-columns: 1fr 3fr;
+  }
 }
 
-.ingredients {
+ul {
   list-style: none outside;
 }
 
@@ -75,11 +67,15 @@ li {
   margin-block-end: 0.25em;
 }
 
+.body {
+  counter-reset: preperation;
+}
+
 :deep(p) {
   position: relative;
   display: flex;
-  gap: 0.75em;
-  padding: 0 0 1.25em;
+  gap: var(--spacing-3);
+  padding: 0 0 var(--spacing-4);
 
   &::before {
     font-family: var(--font-family-headings);

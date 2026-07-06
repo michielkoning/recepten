@@ -4,35 +4,31 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxtjs/stylelint-module',
-    'vuetify-nuxt-module',
     '@vite-pwa/nuxt',
   ],
-  devtools: { enabled: true },
-  css: ['~/assets/css/base.css'],
-  experimental: {
-    payloadExtraction: true,
+  devtools: {
+    enabled: true,
   },
+  css: ['~/assets/css/base.css'],
   compatibilityDate: '2025-07-15',
   // nitro: {
   //   preset: 'netlify',
   // },
   typescript: {
     typeCheck: true,
-  }, postcss: {
+  },
+  postcss: {
     plugins: {
       'postcss-custom-media-generator': {
-        'xs': 480,
-        'sm': 640,
-        'md': 768,
-        'lg': 1024,
-        'xlg': 1240,
-        '--navigation-md': '(width >= 960px)',
-        '--navigation-lg': '(width >= 1024px)',
+        xs: 480,
+        sm: 640,
+        md: 768,
+        lg: 1024,
+        xlg: 1240,
       },
       'postcss-mixins': {
         mixinsDir: './app/assets/css/mixins/',
       },
-      'autoprefixer': false,
       'postcss-preset-env': {
         stage: false,
         features: {
@@ -68,13 +64,6 @@ export default defineNuxtConfig({
       edge_side_panel: {},
       dir: 'ltr',
       // display_override
-    },
-  },
-  vuetify: {
-    vuetifyOptions: {
-      theme: {
-        defaultTheme: 'dark',
-      },
     },
   },
 })
