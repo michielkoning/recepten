@@ -10,6 +10,9 @@ export default defineNuxtConfig({
     enabled: true,
   },
   css: ['~/assets/css/base.css'],
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
   compatibilityDate: '2025-07-15',
   nitro: {
     preset: 'netlify',
