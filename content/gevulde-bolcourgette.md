@@ -1,4 +1,6 @@
-# Gevulde bolcourgette
+---
+title: Gevulde bolcourgette
+---
 
 Verwarm de oven voor op 180 graden.
 

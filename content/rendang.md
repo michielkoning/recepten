@@ -1,1 +1,3 @@
-# Rendang
+---
+title: Rendang
+---

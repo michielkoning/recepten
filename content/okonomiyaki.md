@@ -1,4 +1,5 @@
 ---
+title: Okonomiyaki
 ingredients: 
 - 120 gram bloem  
 - Halve theelepel suiker  
@@ -15,6 +16,3 @@ ingredients:
 - Kewpi mayonaise  (toko / jumbo) 
 - Gedroogde bonito flakes (katsuoboshi) (toko) 
 ---
-
-
-# Okonomiyaki

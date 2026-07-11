@@ -1,1 +1,3 @@
-# Zalm-paprika soep
+---
+title: Zalm-paprika soep
+---

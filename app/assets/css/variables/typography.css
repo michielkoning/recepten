@@ -1,5 +1,5 @@
 :root {
-  --font-size-base: clamp(16px, 2.75vw, 20px);
+  --font-size-base: clamp(18px, 2.75vw, 20px);
   --scale-base: 1rem;
   --scale-ratio: 1.25;
   --font-size-h1: calc(var(--scale-base) * pow(var(--scale-ratio), 4));
@@ -9,8 +9,8 @@
   --font-size-sm: calc(var(--scale-base) * pow(var(--scale-ratio), -1));
   --line-height: 1.6;
   --line-height-heading: 1.2;
-  --font-family-base: "Bitter", arial, helvetica, sans-serif;
-  --font-family-heading: "Cinzel", var(--font-family-base);
+  --font-family-base: "Noto Serif", arial, helvetica, sans-serif;
+  --font-family-heading: var(--font-family-base);
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;

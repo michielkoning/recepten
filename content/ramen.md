@@ -1,1 +1,3 @@
-# Ramen
+---
+title: Ramen
+---

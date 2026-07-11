@@ -1,6 +1,8 @@
 ---
+title: Naanbrood
+
 ingredients: 
-- 300 gram tarwebloem
+- 400 gram (?) tarwebloem
 - 125 ml warm water
 - 100 gram Griekse yoghurt
 - 1 zakje gedroogde gist (7 gram)
@@ -8,8 +10,6 @@ ingredients:
 - 1 theelepel suiker
 - 1 theelepel zout
 ---
-
-# Naanbrood
 
 In een klein kommetje meng je het warme water met de gist en een theelepel suiker tot het begint te schuimen (ca. 5 minuten).
 

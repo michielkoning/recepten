@@ -1,4 +1,6 @@
-# Bloemkoolsoufflé
+---
+title: Bloemkoolsoufflé
+---
 
 Kook de groente in de bouillon in 5 min. beetgaar. Schep de groente uit de pan en laat ze uitlekken. Verwarm in een sauspannetje de boter en voeg bloem met geelwortelpoeder of kerriepoeder toe. Voeg al roerend beetje bij beetje de bouillon en de melk toe. Laat de saus koken tot deze mooi gebonden is en breng op smaak met peper, zout en nootmuskaat. Haal de saus van het vuur. 
 

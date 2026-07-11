@@ -1,4 +1,5 @@
 ---
+title: Curry
 category: Rijst
 ingredients: 
   - 100g dried chickpeas, soaked overnight
@@ -17,8 +18,6 @@ ingredients:
   - spinach (optional)
   - Ime, yogurt, coriander to serve
 ---
-
-# Curry
 
 Soak the chickpeas overnight and then cook for an hour in boiling water. Drain and set aside.
 

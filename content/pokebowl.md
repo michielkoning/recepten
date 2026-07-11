@@ -1,4 +1,5 @@
 ---
+title: Pokebowl
 ingredients: 
 - 2 advocado's
 - 1 mango
@@ -12,5 +13,4 @@ ingredients:
 - 2 bakjes zeewier
 ---
 
-# Pokebowl
 

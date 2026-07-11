@@ -1,4 +1,6 @@
-# Koolrabi-crèmesoep
+---
+title: Koolrabi-crèmesoep
+---
 
 Verhit de olijfolie en schep de koolrabi erdoor. Voeg de knoflook en de majoraan toe en bak de koolrabi ca. 3 minuten op een heel zacht vuur. Voeg de melk en het bouillontablet toe en kook de koolrabi in ca. 5 minuten zachtjes gaar.
 

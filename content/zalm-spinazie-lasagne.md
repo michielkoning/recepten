@@ -1,8 +1,8 @@
 ---
+title: Zalm spinazie lasagne
 category: Pasta
 ---
 
-# Zalm spinazie lasagne
 
 Verwarm de oven op 200 graden. Verhit de olijfolie in een grote pan en bak de knoflook. Voeg de spinazie toe (in stappen) en bak totdat hij geslonken is. Laat de spinazie uitlekken in een zeef of vergiet en druk het overtollige vocht er uit.
 

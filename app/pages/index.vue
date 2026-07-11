@@ -36,3 +36,10 @@ useSeoMeta({
     </ul>
   </div>
 </template>
+
+<style lang="css" scoped>
+ul {
+  padding-inline-start: 0;
+  list-style: none outside;
+}
+</style>

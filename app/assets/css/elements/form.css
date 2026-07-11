@@ -1,4 +1,4 @@
 input[type="checkbox"],
 input[type="radio"] {
-  accent-color: var(--color-primary);
+  accent-color: var(--color-dominant);
 }

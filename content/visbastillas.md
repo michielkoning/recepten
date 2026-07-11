@@ -1,4 +1,6 @@
 ---
+title: Visbastillas
+
 ingredients: 
 - 80 gram mihoen
 - 1 ui
@@ -18,7 +20,6 @@ ingredients:
 - 50 gram roomboter
 ---
 
-# Visbastillas
 
 Snipper de ui en hak de knoflook fijn. Snijd de prei in dunne ringen.
 

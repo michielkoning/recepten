@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/stylelint-module',
     '@vite-pwa/nuxt',
+    '@nuxt/fonts',
   ],
   devtools: {
     enabled: true,
@@ -42,6 +43,16 @@ export default defineNuxtConfig({
       },
       'cssnano': {},
     },
+  },
+  fonts: {
+    families: [
+      {
+        name: 'Noto Serif',
+        provider: 'google',
+        global: true,
+        weights: [500],
+      },
+    ],
   },
   eslint: {
     config: {

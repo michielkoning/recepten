@@ -1,4 +1,5 @@
 ---
+title: Vis tajine
 ingredients: 
 - 300 gram witte vis
 - 2 wortels
@@ -16,8 +17,6 @@ ingredients:
 - 1 ui
 - 12 groene olijven
 ---
-
-# Vis tajine
 
 Meng de kaneel, komijn, gember, kruidnagel, nootmuskaat, kurkuma, kerriepoeder en zout in een grote kom. Zet apart.Hak de peterselie zo fijn mogelijk. Pers de teentjes knoflook uit. Maal de saffraandraadjes fijn in een vijzel. Maak een marinade van de peterselie, knoflook, paprikapoeder, komijn, gember, kurkuma en saffraan met 2 el olijfolie. Laat de vis hier minimaal 15 minuten in marineren, maar langer mag ook.
 

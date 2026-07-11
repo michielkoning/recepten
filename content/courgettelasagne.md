@@ -1,4 +1,7 @@
-# Courgettelasagne
+---
+title: Courgettelasagne
+---
+
 
 Verwarm de oven voor op 180ºC. Leg de courgetteplakken op een bord en bestrooi rondom met zout.
 

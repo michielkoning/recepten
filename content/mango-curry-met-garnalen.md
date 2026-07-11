@@ -1,4 +1,6 @@
-# Mango-curry met garnalen
+---
+title: Mango-curry met garnalen
+---
 
 Verhit de olie in een grote koekenpan. Bak de lente-ui een minuut lang en voeg de currysaus toe.
 

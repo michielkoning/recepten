@@ -10,18 +10,20 @@ useSeoMeta({
 definePageMeta({
   layout: {
     props: {
-      title: 'Terug naar recepten',
+      showLink: true
     },
   },
 })
+
 </script>
 
 <template>
   <div
     v-if="data"
-    class="wrapper"
   >
-    <aside v-if="data.ingredients?.length">
+  <div class="wrapper">
+    <h1>{{ data.title }}</h1>
+    <aside v-if="data.ingredients.length">
       <h2>Ingredienten</h2>
       <ul>
         <li
@@ -32,17 +34,21 @@ definePageMeta({
         </li>
       </ul>
     </aside>
-    <content-renderer
-      :value="data"
-      :title="undefined"
-      class="body"
-    />
+    <div>
+      <h2>Bereiding</h2>
+      <content-renderer
+        :value="data"
+        :title="undefined"
+        class="body"
+      />
+    </div>
     <!-- <v-chip-group>
         <v-chip
           v-if="data.category"
           :text="data.category"
         />
       </v-chip-group> -->
+  </div>
   </div>
   <div v-else>
     Recipe not found
@@ -52,15 +58,17 @@ definePageMeta({
 <style lang="css" scoped>
 .wrapper {
   display: grid;
-  gap: var(--spacing-4);
+  column-gap: var(--spacing-4);
 
   @media (--lg) {
-    grid-template-columns: 1fr 3fr;
-  }
-}
+    &:has(aside) {
+      grid-template-columns: 1fr 3fr;
 
-ul {
-  list-style: none outside;
+      h1 {
+        grid-column: 2 / 3;
+      }
+    }
+  }
 }
 
 li {
@@ -75,7 +83,7 @@ li {
   position: relative;
   display: flex;
   gap: var(--spacing-3);
-  padding: 0 0 var(--spacing-4);
+  padding: 0 0 var(--spacing-2);
 
   &::before {
     font-family: var(--font-family-headings);

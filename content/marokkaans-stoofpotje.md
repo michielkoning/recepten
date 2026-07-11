@@ -1,4 +1,6 @@
 ---
+title: Marokkaans stoofpotje
+
 ingredients: 
 - 1 theelepel kaneel
 - 1 theelepel komijnpoeder
@@ -24,9 +26,6 @@ ingredients:
 - 1 eetlepel maïzena (optioneel)
 - 1 eetlepel water (optioneel)
 ---
-
-
-# Marokkaans stoofpotje
 
 Meng de kaneel, komijn, gember, kruidnagel, nootmuskaat, kurkuma, kerriepoeder en zout in een grote kom. Zet apart.
 
