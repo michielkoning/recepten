@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
-    '@nuxtjs/stylelint-module',
+    // '@nuxtjs/stylelint-module',
     '@vite-pwa/nuxt',
     '@nuxt/fonts',
   ],
@@ -44,22 +44,36 @@ export default defineNuxtConfig({
       'cssnano': {},
     },
   },
-  fonts: {
-    families: [
-      {
-        name: 'Noto Serif',
-        provider: 'google',
-        global: true,
-        weights: [500],
-      },
-    ],
-  },
   eslint: {
     config: {
       stylistic: true,
     },
   },
-  pwa: {
+  fonts: {
+    defaults: {
+
+      subsets: [
+        'latin-ext',
+        'latin',
+      ],
+    },
+    families: [{
+      weights: [400, 700],
+      styles: ['normal'],
+      name: 'Sora',
+      provider: 'google',
+      global: true,
+    },
+    {
+      weights: [500],
+      styles: ['normal'],
+      name: 'Domine',
+      provider: 'google',
+      global: true,
+    },
+    ],
+  },
+    pwa: {
     base: '/',
     client: {},
     strategies: 'generateSW',

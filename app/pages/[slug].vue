@@ -10,45 +10,44 @@ useSeoMeta({
 definePageMeta({
   layout: {
     props: {
-      showLink: true
+      showLink: true,
     },
   },
 })
-
 </script>
 
 <template>
   <div
     v-if="data"
   >
-  <div class="wrapper">
-    <h1>{{ data.title }}</h1>
-    <aside v-if="data.ingredients.length">
-      <h2>Ingredienten</h2>
-      <ul>
-        <li
-          v-for="item in data.ingredients"
-          :key="item"
-        >
-          {{ item }}
-        </li>
-      </ul>
-    </aside>
-    <div>
-      <h2>Bereiding</h2>
-      <content-renderer
-        :value="data"
-        :title="undefined"
-        class="body"
-      />
-    </div>
+    <div class="wrapper">
+      <h1>{{ data.title }}</h1>
+      <aside v-if="data.ingredients.length">
+        <h2>Ingredienten</h2>
+        <ul>
+          <li
+            v-for="item in data.ingredients"
+            :key="item"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </aside>
+      <div>
+        <h2>Bereiding</h2>
+        <content-renderer
+          :value="data"
+          :title="undefined"
+          class="body"
+        />
+      </div>
     <!-- <v-chip-group>
         <v-chip
           v-if="data.category"
           :text="data.category"
         />
       </v-chip-group> -->
-  </div>
+    </div>
   </div>
   <div v-else>
     Recipe not found

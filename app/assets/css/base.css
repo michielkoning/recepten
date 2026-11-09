@@ -1,3 +1,4 @@
-@import "./variables/_base.css";
-@import "./elements/_base.css";
-@import "./layout/_base.css";
+@layer base, theme;
+
+@import "@m11g/library/style.css";
+@import "@m11g/library/wdt.css";

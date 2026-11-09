@@ -42,4 +42,8 @@ ul {
   padding-inline-start: 0;
   list-style: none outside;
 }
+
+li {
+  padding-block-end: var(--spacing-1);
+}
 </style>
