@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CenterWrapper } from '@m11g/library'
+
 defineProps<{
   showLink?: boolean
 }>()
