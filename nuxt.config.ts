@@ -73,14 +73,14 @@ export default defineNuxtConfig({
     },
     ],
   },
-    pwa: {
+  pwa: {
     base: '/',
     client: {},
     strategies: 'generateSW',
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2}'],
+      globPatterns: ['**/*.{js,css,woff2,wasm,html}'],
     },
     manifest: {
       id: 'recepten',
