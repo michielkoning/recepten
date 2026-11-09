@@ -12,7 +12,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/base.css'],
   content: {
-    experimental: { sqliteConnector: 'native' },
+    experimental: { 
+      sqliteConnector: 'native' 
+    },
   },
   compatibilityDate: '2025-07-15',
   nitro: {
@@ -51,7 +53,6 @@ export default defineNuxtConfig({
   },
   fonts: {
     defaults: {
-
       subsets: [
         'latin-ext',
         'latin',
@@ -80,7 +81,9 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2,wasm,html}'],
+      globPatterns: [
+        '**/*.{js,css,woff2,wasm}'
+      ],
     },
     manifest: {
       id: 'recepten',
