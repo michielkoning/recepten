@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/eslint',
     // '@nuxtjs/stylelint-module',
-    '@vite-pwa/nuxt',
+    // '@vite-pwa/nuxt',
     '@nuxt/fonts',
     'nuxt-studio',
   ],
