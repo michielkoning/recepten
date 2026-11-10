@@ -85,7 +85,22 @@ export default defineNuxtConfig({
         '**/*.{js,css,woff2,wasm}', 
         '/index.html'
       ],
+      runtimeCaching: [
+        {
+          urlPattern: ({ request }) => request.destination === 'document',
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'document',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24,
+            },
+          },
+        },
+      ],      
     },
+    
     manifest: {
       id: 'recepten',
       categories: ['food'],
