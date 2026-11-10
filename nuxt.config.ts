@@ -75,43 +75,43 @@ export default defineNuxtConfig({
       },
     ],
   },
-  pwa: {
-    base: '/',
-    client: {},
-    strategies: 'generateSW',
-    registerWebManifestInRouteRules: true,
-    registerType: 'autoUpdate',
-    workbox: {
-      globPatterns: [
-        '**/*.{js,css,woff2,wasm}', 
-        '/index.html'
-      ],
-      runtimeCaching: [
-        {
-          urlPattern: ({ request }) => request.destination === 'document',
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'document',
-            expiration: {
-              maxEntries: 50,
-              purgeOnQuotaError: true,
-              maxAgeSeconds: 60 * 60 * 24,
-            },
-          },
-        },
-      ],      
-    },
+  // pwa: {
+  //   base: '/',
+  //   client: {},
+  //   strategies: 'generateSW',
+  //   registerWebManifestInRouteRules: true,
+  //   registerType: 'autoUpdate',
+  //   workbox: {
+  //     globPatterns: [
+  //       '**/*.{js,css,woff2,wasm}', 
+  //       '/index.html'
+  //     ],
+  //     runtimeCaching: [
+  //       {
+  //         urlPattern: ({ request }) => request.destination === 'document',
+  //         handler: 'StaleWhileRevalidate',
+  //         options: {
+  //           cacheName: 'document',
+  //           expiration: {
+  //             maxEntries: 50,
+  //             purgeOnQuotaError: true,
+  //             maxAgeSeconds: 60 * 60 * 24,
+  //           },
+  //         },
+  //       },
+  //     ],      
+  //   },
     
-    manifest: {
-      id: 'recepten',
-      categories: ['food'],
-      lang: 'nl',
-      name: 'Recepten',
-      orientation: 'portrait-primary',
-      short_name: 'Recepten',
-      edge_side_panel: {},
-      dir: 'ltr',
-      // display_override
-    },
-  },
+  //   manifest: {
+  //     id: 'recepten',
+  //     categories: ['food'],
+  //     lang: 'nl',
+  //     name: 'Recepten',
+  //     orientation: 'portrait-primary',
+  //     short_name: 'Recepten',
+  //     edge_side_panel: {},
+  //     dir: 'ltr',
+  //     // display_override
+  //   },
+  // },
 })
