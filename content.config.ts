@@ -1,6 +1,8 @@
 import { defineContentConfig, defineCollection } from '@nuxt/content'
 import { z } from 'zod'
 
+const ingredientsSchema = z.array(z.string()).default([])
+
 export default defineContentConfig({
   collections: {
     recipes: defineCollection({
@@ -11,10 +13,10 @@ export default defineContentConfig({
         title: z.string(),
         category: z.string(),
         source: z.string().optional(),
-        ingredients: z.array(z.string()).default([]),
+        ingredients: ingredientsSchema,
         groupedIngredients: z.array(z.object({
           title: z.string(),
-          ingredients: z.array(z.string()).default([]),  
+          ingredients: ingredientsSchema,
         })).default([]),
       }),
     }),

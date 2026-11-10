@@ -12,8 +12,13 @@ defineProps<{
     <nuxt-route-announcer />
     <header>
       <center-wrapper>
-        <nuxt-link v-if="showLink" to="/">Terug naar recepten</nuxt-link>
-        <template v-else>Recepten</template>
+        <nuxt-link
+          v-if="showLink"
+          to="/"
+        >Terug naar recepten</nuxt-link>
+        <template v-else>
+          Recepten
+        </template>
       </center-wrapper>
     </header>
     <main>
@@ -50,6 +55,6 @@ header {
 }
 
 main {
-  padding: var(--spacing-2) var(--spacing-4);
+  padding: var(--spacing-6) var(--spacing-4);
 }
 </style>

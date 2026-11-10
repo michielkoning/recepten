@@ -1,19 +1,29 @@
 ---
 title: Sticky bloemkool met rijst
 
-ingredients:
-- 50 ml sojasaus
-- 2 el ahornsiroop
-- 1 el geroosterde sesamolie
-- 1 el rijstazijn
-- 1 el tomatenpuree
-- 1 el chilipasta (optioneel)
-- 2 tenen knoflook, gepeld en fijn geraspt
-- 4 cm gember, gepeld en fijn geraspt
-- 1 el sesamzaadjes
-- 2 bosuien in ringen
----
+groupedIngredients: 
+  - title: Bloemkool
+    ingredients: 
+      - 1 bloemkool (ongeveer 1 kg)
+      - 120 g bloem
+      - 230 ml water plus extra
+      - 1/2 tl knoflookpoeder
+      - 1 el sesamzaad
+      - zout en peper
 
+  - title: Sticky sesamsaus
+    ingredients: 
+      - 50 ml sojasaus
+      - 2 el ahornsiroop
+      - 1 el geroosterde sesamolie
+      - 1 el rijstazijn
+      - 1 el tomatenpuree
+      - 1 el chilipasta (optioneel)
+      - 2 tenen knoflook, gepeld en fijn geraspt
+      - 4 cm gember, gepeld en fijn geraspt
+      - 1 el sesamzaadjes
+      - 2 bosuien in ringen
+---
 Verwarm de oven op 230°C.
 
 Bekleed 2 bakplaten met bakpapier.

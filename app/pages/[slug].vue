@@ -22,14 +22,31 @@ definePageMeta({
   >
     <div class="wrapper">
       <h1>{{ data.title }}</h1>
-      <aside v-if="data.ingredients.length">
+
+      <aside v-if="data.ingredients.length || data.groupedIngredients.length">
         <h2>Ingredienten</h2>
         <ul>
           <li
-            v-for="item in data.ingredients"
-            :key="item"
+            v-for="item in data.groupedIngredients"
+            :key="item.title"
           >
-            {{ item }}
+            <h3>{{ item.title }}</h3>
+            <ul>
+              <li
+                v-for="ingredient in item.ingredients"
+                :key="ingredient"
+              >
+                {{ ingredient }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li
+            v-for="ingredient in data.ingredients"
+            :key="ingredient"
+          >
+            {{ ingredient }}
           </li>
         </ul>
       </aside>
@@ -61,10 +78,10 @@ definePageMeta({
 
   @media (--lg) {
     &:has(aside) {
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 1fr 2fr;
 
       h1 {
-        grid-column: 2 / 3;
+        grid-column: span 3;
       }
     }
   }
@@ -92,5 +109,9 @@ li {
     counter-increment: preperation;
     transform: translateY(0.1em);
   }
+}
+
+ul {
+  list-style: none outside;
 }
 </style>
