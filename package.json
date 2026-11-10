@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare",
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:js": "eslint . --fix",
-    "lint:css": "stylelint \"./app/**/*.{css,vue}\" --fix",
+    "lint:css": "stylelint \"**/*.{css,vue}\" --fix --ignore-path .gitignore",
     "typecheck": "nuxt typecheck"
   },
   "devDependencies": {

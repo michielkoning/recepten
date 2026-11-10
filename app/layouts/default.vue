@@ -53,6 +53,6 @@ header {
 }
 
 main {
-  padding: var(--spacing-6) var(--spacing-4);
+  padding-block: var(--spacing-6);
 }
 </style>
