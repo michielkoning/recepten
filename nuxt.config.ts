@@ -82,8 +82,26 @@ export default defineNuxtConfig({
     registerWebManifestInRouteRules: true,
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,woff2,wasm}'],
+      globPatterns: [
+        '**/*.{js,css,woff2,wasm}', 
+        '/index.html'
+      ],
+      runtimeCaching: [
+        {
+          urlPattern: ({ request }) => request.destination === 'document',
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'document',
+            expiration: {
+              maxEntries: 50,
+              purgeOnQuotaError: true,
+              maxAgeSeconds: 60 * 60 * 24,
+            },
+          },
+        },
+      ],      
     },
+    
     manifest: {
       id: 'recepten',
       categories: ['food'],
