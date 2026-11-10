@@ -1,25 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    "@nuxt/content",
-    "@nuxt/eslint",
+    '@nuxt/content',
+    '@nuxt/eslint',
     // '@nuxtjs/stylelint-module',
-    "@vite-pwa/nuxt",
-    "@nuxt/fonts",
+    '@vite-pwa/nuxt',
+    '@nuxt/fonts',
   ],
   devtools: {
     enabled: true,
   },
-  css: ["~/assets/css/base.css"],
+  css: ['~/assets/css/base.css'],
   content: {
     experimental: {
-      sqliteConnector: "native",
+      sqliteConnector: 'native',
     },
   },
-  compatibilityDate: "2025-07-15",
-  vite:  {
+  compatibilityDate: '2025-07-15',
+  vite: {
     optimizeDeps: {
-      include: ["@m11g/library"],
+      include: ['@m11g/library'],
     },
   },
   typescript: {
@@ -27,25 +27,25 @@ export default defineNuxtConfig({
   },
   postcss: {
     plugins: {
-      "postcss-custom-media-generator": {
+      'postcss-custom-media-generator': {
         xs: 480,
         sm: 640,
         md: 768,
         lg: 1024,
         xlg: 1240,
       },
-      "postcss-mixins": {
-        mixinsDir: "./app/assets/css/mixins/",
+      'postcss-mixins': {
+        mixinsDir: './app/assets/css/mixins/',
       },
-      "postcss-preset-env": {
+      'postcss-preset-env': {
         stage: false,
         features: {
-          "nesting-rules": false,
-          "custom-media-queries": true,
-          "media-query-ranges": true,
+          'nesting-rules': false,
+          'custom-media-queries': true,
+          'media-query-ranges': true,
         },
       },
-      cssnano: {},
+      'cssnano': {},
     },
   },
   eslint: {
@@ -55,44 +55,44 @@ export default defineNuxtConfig({
   },
   fonts: {
     defaults: {
-      subsets: ["latin-ext", "latin"],
+      subsets: ['latin-ext', 'latin'],
     },
     families: [
       {
         weights: [400, 700],
-        styles: ["normal"],
-        name: "Sora",
-        provider: "google",
+        styles: ['normal'],
+        name: 'Sora',
+        provider: 'google',
         global: true,
       },
       {
         weights: [500],
-        styles: ["normal"],
-        name: "Domine",
-        provider: "google",
+        styles: ['normal'],
+        name: 'Domine',
+        provider: 'google',
         global: true,
       },
     ],
   },
   pwa: {
-    base: "/",
+    base: '/',
     client: {},
-    strategies: "generateSW",
+    strategies: 'generateSW',
     registerWebManifestInRouteRules: true,
-    registerType: "autoUpdate",
+    registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ["**/*.{js,css,woff2,wasm}"],
+      globPatterns: ['**/*.{js,css,woff2,wasm}'],
     },
     manifest: {
-      id: "recepten",
-      categories: ["food"],
-      lang: "nl",
-      name: "Recepten",
-      orientation: "portrait-primary",
-      short_name: "Recepten",
+      id: 'recepten',
+      categories: ['food'],
+      lang: 'nl',
+      name: 'Recepten',
+      orientation: 'portrait-primary',
+      short_name: 'Recepten',
       edge_side_panel: {},
-      dir: "ltr",
+      dir: 'ltr',
       // display_override
     },
   },
-});
+})

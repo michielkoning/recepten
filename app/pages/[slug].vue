@@ -31,39 +31,18 @@ definePageMeta({
             :key="item.title"
           >
             <h3>{{ item.title }}</h3>
-            <ul>
-              <li
-                v-for="ingredient in item.ingredients"
-                :key="ingredient"
-              >
-                {{ ingredient }}
-              </li>
-            </ul>
+            <recipe-ingredients
+              v-if="item.ingredients.length"
+              :ingredients="item.ingredients"
+            />
           </li>
         </ul>
-        <ul>
-          <li
-            v-for="ingredient in data.ingredients"
-            :key="ingredient"
-          >
-            {{ ingredient }}
-          </li>
-        </ul>
+        <recipe-ingredients
+          v-if="data.ingredients.length"
+          :ingredients="data.ingredients"
+        />
       </aside>
-      <div>
-        <h2>Bereiding</h2>
-        <content-renderer
-          :value="data"
-          :title="undefined"
-          class="body"
-        />
-      </div>
-    <!-- <v-chip-group>
-        <v-chip
-          v-if="data.category"
-          :text="data.category"
-        />
-      </v-chip-group> -->
+      <recipe-preperation :recipe="data" />
     </div>
   </div>
   <div v-else>
@@ -87,31 +66,11 @@ definePageMeta({
   }
 }
 
-li {
-  margin-block-end: 0.25em;
-}
-
-.body {
-  counter-reset: preperation;
-}
-
-:deep(p) {
-  position: relative;
-  display: flex;
-  gap: var(--spacing-3);
-  padding: 0 0 var(--spacing-2);
-
-  &::before {
-    font-family: var(--font-family-headings);
-    font-size: 1.75em;
-    line-height: 1;
-    content: counter(preperation);
-    counter-increment: preperation;
-    transform: translateY(0.1em);
-  }
-}
-
 ul {
   list-style: none outside;
+}
+
+li {
+  margin-block-end: var(--spacing-6);
 }
 </style>
