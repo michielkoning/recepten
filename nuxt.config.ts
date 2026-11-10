@@ -82,8 +82,8 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       globPatterns: [
-        '**/*.{js,css,woff2,wasm}', 
-        '/index.html'
+        '**/*.{js,css,woff2,wasm}',
+        '/index.html',
       ],
       runtimeCaching: [
         {
@@ -98,9 +98,9 @@ export default defineNuxtConfig({
             },
           },
         },
-      ],      
+      ],
     },
-    
+
     manifest: {
       id: 'recepten',
       categories: ['food'],

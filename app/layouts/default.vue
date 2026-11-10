@@ -22,9 +22,7 @@ defineProps<{
       </center-wrapper>
     </header>
     <main>
-      <center-wrapper>
-        <slot />
-      </center-wrapper>
+      <slot />
     </main>
   </div>
 </template>

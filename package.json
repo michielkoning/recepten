@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare",
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:js": "eslint . --fix",
-    "lint:css": "stylelint \"**/*.{css,vue}\" --fix",
+    "lint:css": "stylelint \"./app/**/*.{css,vue}\" --fix",
     "typecheck": "nuxt typecheck"
   },
   "devDependencies": {
@@ -46,7 +46,6 @@
     "nuxt": "^4.6.4",
     "vue": "^3.5.45",
     "vue-router": "^5.4.0",
-    "vuetify-nuxt-module": "0.19.5",
     "zod": "^4.6.7"
   }
 }

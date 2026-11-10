@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CenterWrapper } from '@m11g/library';
+import { CenterWrapper } from '@m11g/library'
 
 const route = useRoute()
 const { data } = await useAsyncData(() => queryCollection('recipes').path(route.path).first())
@@ -20,37 +20,37 @@ definePageMeta({
 
 <template>
   <center-wrapper size="lg">
-  <div
-    v-if="data"
-  >
-    <div class="wrapper">
-      <h1>{{ data.title }}</h1>
+    <div
+      v-if="data"
+    >
+      <div class="wrapper">
+        <h1>{{ data.title }}</h1>
 
-      <aside v-if="data.ingredients.length || data.groupedIngredients.length">
-        <h2>Ingredienten</h2>
-        <ul>
-          <li
-            v-for="item in data.groupedIngredients"
-            :key="item.title"
-          >
-            <h3>{{ item.title }}</h3>
-            <recipe-ingredients
-              v-if="item.ingredients.length"
-              :ingredients="item.ingredients"
-            />
-          </li>
-        </ul>
-        <recipe-ingredients
-          v-if="data.ingredients.length"
-          :ingredients="data.ingredients"
-        />
-      </aside>
-      <recipe-preperation :recipe="data" />
+        <aside v-if="data.ingredients.length || data.groupedIngredients.length">
+          <h2>Ingredienten</h2>
+          <ul>
+            <li
+              v-for="item in data.groupedIngredients"
+              :key="item.title"
+            >
+              <h3>{{ item.title }}</h3>
+              <recipe-ingredients
+                v-if="item.ingredients.length"
+                :ingredients="item.ingredients"
+              />
+            </li>
+          </ul>
+          <recipe-ingredients
+            v-if="data.ingredients.length"
+            :ingredients="data.ingredients"
+          />
+        </aside>
+        <recipe-preperation :recipe="data" />
+      </div>
     </div>
-  </div>
-  <div v-else>
-    Recipe not found
-  </div>
+    <div v-else>
+      Recipe not found
+    </div>
   </center-wrapper>
 </template>
 

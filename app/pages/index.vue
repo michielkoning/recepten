@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CenterWrapper } from '@m11g/library';
+import { CenterWrapper } from '@m11g/library'
 
 const { data } = await useAsyncData('recipes', () => {
   return queryCollection('recipes')
@@ -13,7 +13,10 @@ useSeoMeta({
 </script>
 
 <template>
-  <center-wrapper v-if="data" size="md">
+  <center-wrapper
+    v-if="data"
+    size="md"
+  >
     <ul v-if="data.length">
       <li
         v-for="item in data"
