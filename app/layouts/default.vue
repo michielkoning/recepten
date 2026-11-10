@@ -32,7 +32,7 @@ header {
   position: sticky;
   inset-block-start: 0;
   z-index: 1;
-  padding: var(--spacing-2) var(--spacing-4);
+  padding-block: var(--spacing-2);
   font-size: var(--font-size-h4);
   line-height: var(--line-height-heading);
   background-color: var(--color-secondary);
