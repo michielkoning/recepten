@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CenterWrapper } from '@m11g/library';
+
 const route = useRoute()
 const { data } = await useAsyncData(() => queryCollection('recipes').path(route.path).first())
 
@@ -17,6 +19,7 @@ definePageMeta({
 </script>
 
 <template>
+  <center-wrapper size="lg">
   <div
     v-if="data"
   >
@@ -48,6 +51,7 @@ definePageMeta({
   <div v-else>
     Recipe not found
   </div>
+  </center-wrapper>
 </template>
 
 <style lang="css" scoped>

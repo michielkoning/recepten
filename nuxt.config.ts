@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     // '@nuxtjs/stylelint-module',
     '@vite-pwa/nuxt',
     '@nuxt/fonts',
+    'nuxt-studio',
   ],
   devtools: {
     enabled: true,
