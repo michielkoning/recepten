@@ -2,7 +2,7 @@
 import { CenterWrapper } from '@m11g/library'
 
 const route = useRoute()
-const { data } = await useAsyncData(() => queryCollection('recipes').path(route.path).first())
+const { data } = await useAsyncData(route.path, () => queryCollection('recipes').path(route.path).first())
 
 useSeoMeta({
   title: data.value?.title,
