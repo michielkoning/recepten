@@ -35,7 +35,8 @@ header {
   padding-block: var(--spacing-2);
   font-size: var(--font-size-h4);
   line-height: var(--line-height-heading);
-  background-color: var(--color-secondary);
+  color: var(--color-secondary-fg);
+  background-color: var(--color-secondary-solid);
   border-block-end: 1px solid currentcolor;
   transition: translate var(--transition);
 
@@ -50,6 +51,10 @@ header {
   @media print {
     display: none;
   }
+}
+
+a {
+  color: currentcolor;
 }
 
 main {
