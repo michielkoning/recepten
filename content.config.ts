@@ -10,8 +10,7 @@ export default defineContentConfig({
       source: '*.md',
       // Define custom schema for docs collection
       schema: z.object({
-        title: z.string(),
-        category: z.string(),
+        category: z.string().optional(),
         source: z.string().optional(),
         ingredients: ingredientsSchema,
         groupedIngredients: z.array(z.object({

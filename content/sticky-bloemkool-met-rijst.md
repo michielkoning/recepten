@@ -1,6 +1,8 @@
 ---
 title: Sticky bloemkool met rijst
 
+source: https://www.24kitchen.nl/recepten/sticky-bloemkool-met-rijst
+
 groupedIngredients: 
   - title: Bloemkool
     ingredients: 
