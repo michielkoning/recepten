@@ -22,6 +22,10 @@ export default defineNuxtConfig({
     experimental: {
       sqliteConnector: 'native',
     },
+  }, 
+  experimental: {
+    webmcp: true,
+    staticRoutes: true,
   },
   compatibilityDate: '2025-07-15',
   vite: {
@@ -31,6 +35,11 @@ export default defineNuxtConfig({
   },
   typescript: {
     typeCheck: true,
+    tsConfig: {
+      compilerOptions: {
+        types: ['webmcp-types'],
+      },
+    },
   },
   postcss: {
     plugins: {
